@@ -32,7 +32,7 @@
     background-color: green;
     color: white;
 }
-.ambiental:active{
+.ambiental.active{
     background-color: green;
     color: white;
 }
@@ -43,10 +43,18 @@
     background-color: rgb(243, 164, 48);
     color: white;
 }
+.economico.active{
+    background-color: rgb(243, 164, 48);
+    color: white;
+}
 .social{
     border-color: rgb(45,125,210);
 }
 .social:hover{
+    background-color: rgb(45,125,210);
+    color: white;
+}
+.social.active{
     background-color: rgb(45,125,210);
     color: white;
 }
