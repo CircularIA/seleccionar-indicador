@@ -1,9 +1,12 @@
 //Bibliotecas
-import React, {useState} from 'react'
+import React, { useState } from 'react'
+import { styled, alpha } from '@mui/material/styles';
 //Estilo
 import './../css/main.css'
 //Componentes
 import Indicador from './indicador'
+import Search from './search';
+import Seleccionado from './seleccionado';
 //Recursos
 import ImagenAmbiental from './../img/Ambiental.svg'
 import ImagenEconomico from './../img/Economico.svg'
@@ -14,7 +17,7 @@ import ImagenEmisiones from './../img/Emisiones.svg'
 import ImagenEnergia from './../img/Energia.svg'
 import ImagenEficiencia from './../img/Eficiencia.svg'
 import ImagenOrganizacional from './../img/Organizacional.svg'
-import { Grid } from '@mui/material'
+
 
 function Main() {
     const datos = [
@@ -37,78 +40,72 @@ function Main() {
 
     const datosTypes = [
         {
-            nombre: 'Flujos',
+            nombre: 'FLUJOS',
             imagen: ImagenFlujos,
             descripcion: 'Indicadores relacionados con el nivel de circularidad de los flujos de entrada y salida'
         },
         {
-            nombre: 'Agua',
+            nombre: 'AGUA',
             imagen: ImagenAgua,
             descripcion: 'Indicadores relacionados con el nivel de agua'
         },
         {
-            nombre:'Emisiones',
+            nombre: 'EMISIONES',
             imagen: ImagenEmisiones,
             descripcion: 'Indicadores relacionados con el nivel de Emisiones'
         },
         {
-            nombre: 'Energia',
+            nombre: 'ENERGIA',
             imagen: ImagenEnergia,
             descripcion: 'Indicadores relacionados con el nivel de Energia'
         },
         {
-            nombre: 'Eficiencia',
+            nombre: 'EFICIENCIA',
             imagen: ImagenEficiencia,
             descripcion: 'Indicadores relacionados con el nivel de Eficiencia'
         },
         {
-            nombre: 'Organizacional',
+            nombre: 'ORGANIZACIONAL',
             imagen: ImagenOrganizacional,
             descripcion: 'Indicadores relacionados con el nivel de la organizacion'
         }
     ]
-    const [indicador, setIndicador] = useState(datos[0]);
-    const [currentView, setCurrentView] = useState(1);
 
-    
-    const SetView = () =>{
-        if (currentView == 0){
+
+    const [currentView, setCurrentView] = useState(0);
+
+    const SetView = () => {
+        if (currentView == 0) {
             return <div className='content'>
-                    <h2>¿QUE TIPO DE INDICADOR QUIERES CONOCER</h2>
-                    <div className="indicadores">
-                        <Indicador descripcion={datos[0].descripcion} imagen={datos[0].imagen} setCurrentView={setCurrentView}></Indicador>
-                        <Indicador descripcion={datos[1].descripcion} imagen={datos[1].imagen} setCurrentView={setCurrentView}></Indicador>
-                        <Indicador descripcion={datos[2].descripcion} imagen={datos[2].imagen} setCurrentView={setCurrentView}></Indicador>
-                    </div>
-                    {/* <div className="titulo">
-                        <span>Ambiental</span>
-                        <span>Economico</span>
-                        <span>Social</span>
-                    </div> */}
+                <h2>¿QUE TIPO DE INDICADOR QUIERES CONOCER</h2>
+                <div className="indicadores">
+                    {datos.map((indicador, index) => {
+                        return <Indicador key={index} descripcion={indicador.descripcion} imagen={indicador.imagen} setCurrentView={setCurrentView}></Indicador>
+                    })}
                 </div>
-        } else if(currentView == 1){
-            return(
-                <Grid container spacing={2} >
-                    <Grid item xs={4} justifyContent={'flex-end'} >
-                        <span>Holi</span>
-                    </Grid>
-
-                    <div className="indicadores">
-                            <Indicador nombre={datosTypes[0].nombre} descripcion={datosTypes[0].descripcion} imagen={datosTypes[0].imagen} setCurrentView={setCurrentView}></Indicador>
-                            <Indicador nombre={datosTypes[1].nombre} descripcion={datosTypes[1].descripcion} imagen={datosTypes[1].imagen} setCurrentView={setCurrentView}></Indicador>
-                            <Indicador nombre={datosTypes[2].nombre} descripcion={datosTypes[2].descripcion} imagen={datosTypes[2].imagen} setCurrentView={setCurrentView}></Indicador>
-                            <Indicador nombre={datosTypes[3].nombre} descripcion={datosTypes[3].descripcion} imagen={datosTypes[3].imagen} setCurrentView={setCurrentView}></Indicador>
-                            <Indicador nombre={datosTypes[4].nombre} descripcion={datosTypes[4].descripcion} imagen={datosTypes[4].imagen} setCurrentView={setCurrentView}></Indicador>
-                            <Indicador nombre={datosTypes[5].nombre} descripcion={datosTypes[5].descripcion} imagen={datosTypes[5].imagen} setCurrentView={setCurrentView}></Indicador>
+            </div>
+        } else if (currentView == 1) {
+            return (
+                <div className='content secondView'>
+                    <div className="searchBox">
+                        <Search></Search>
                     </div>
-                </Grid>
-            )   
+                    <div className="indicadoresBox">
+                        <Seleccionado></Seleccionado>
+                    </div>
+                    <div className="indicadores indicadoresCard">
+                        {datosTypes.map((indicador, index) => {
+                            return <Indicador key={index} nombre={indicador.nombre} descripcion={indicador.descripcion} imagen={indicador.imagen} setCurrentView={setCurrentView}></Indicador>
+                        })}
+                    </div>
+                </div>
+            )
         }
     }
-    
+
     return (
         <SetView>
-            
+
         </SetView>
     )
 }

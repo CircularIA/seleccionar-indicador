@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import'./../css/indicador.css'
 
 function Indicador({nombre, descripcion, imagen,setCurrentView}) {
@@ -11,7 +11,7 @@ function Indicador({nombre, descripcion, imagen,setCurrentView}) {
   return (
     <button className='card' onClick={nextView} >
       {nombre ? <h2>{nombre}</h2> : null}
-      <img src={imagen} className='imagen' loading='lazy'/>
+      <img src={imagen} loading='lazy'/>
       <div className='descripcion'>
         <span>{descripcion}</span>
       </div> 
