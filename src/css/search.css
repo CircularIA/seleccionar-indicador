@@ -1,0 +1,20 @@
+.search{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.inputText{
+    border-radius: 40px;
+    height: 30px;
+    width: 311px;
+    margin-right: 2%;
+}
+.classSearch{
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    background-color: rgba(0, 185, 113, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
