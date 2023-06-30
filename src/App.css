@@ -6,6 +6,7 @@
   justify-content: space-evenly;
   grid-template-columns: 1fr 15fr;
   /* place-items: center;  */
+  min-width: 320px;
   min-height: 100vh;
   color: #1a1a1a;
   font-size: large;
@@ -15,7 +16,6 @@
   background: linear-gradient(rgba(0, 138, 85, 1),rgba(0, 185, 113, 1), rgba(13, 255, 110, 1));
   /* background-color: rgb(0, 138, 85); */
   min-height: max-content;
-  min-width: 50%;
   font-size: large;
   color: black;
   padding: 50% 10% 10% 10%;
@@ -26,7 +26,8 @@
 .main{
   background-color: white;
   min-height: max-content;
-  min-width: max-content;
+  /* No descomentar estoooo
+  min-width: max-content; */
   font-size: large;
   color: black;
   padding-left: 1%;

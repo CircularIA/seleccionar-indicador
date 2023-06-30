@@ -1,10 +1,7 @@
-import { useState } from 'react'
 //Estilo
 import './App.css'
 //Recurso Bootstrap
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 //Componentes
 import Main from './components/main'
 import NavBar from './components/navbar'
