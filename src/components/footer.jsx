@@ -5,11 +5,21 @@ import { Context } from '../context/context';
 
 function Footer() {
     const {currentView} = useContext(Context);
-    return (
-        <div className="contentFooter">
-            <CircleFill color='#00B971'></CircleFill>
-        </div>
-    )
+
+    if (currentView == 0){
+        return (
+            <div className="contentFooter">
+                <CircleFill color='#00B971'></CircleFill>
+            </div>
+        )
+    } else if (currentView == 1){
+        return (
+            <div className="contentFooter">
+                <CircleFill color='#989898'></CircleFill>
+                <CircleFill color='#00B971'></CircleFill>
+            </div>
+        )
+    }
 }
 
 export default Footer

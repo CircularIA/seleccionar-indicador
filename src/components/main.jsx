@@ -20,7 +20,10 @@ function Main() {
             <div className="indicadoresFlex">
                 {datos.map((indicador, index) => {
                     return <div className="tituloClass" key={index}>
-                        <Indicador descripcion={indicador.descripcion} imagen={indicador.imagen} ></Indicador>
+                        <Indicador descripcion={indicador.descripcion} 
+                        imagen={indicador.imagen} 
+                        titulo={indicador.titulo} >
+                        </Indicador>
                         <span>{indicador.titulo}</span>
                     </div>
                 })}

@@ -4,14 +4,15 @@ import'./../css/indicador.css'
 import { Card } from 'react-bootstrap'
 import { Context } from '../context/context';
 
-function Indicador({nombre, descripcion, imagen}) {
-
+function Indicador({nombre, descripcion, imagen, titulo=''}) {
   const {setCurrentView, setCurrentIndicator} = useContext(Context);
-
   const nextView = () =>{
     setCurrentView((e) =>
       e + 1
     )
+    if (titulo) {
+      setCurrentIndicator(titulo.toUpperCase())
+    }
   }
   return (
     <Card className='card' onClick={nextView}>
@@ -23,13 +24,6 @@ function Indicador({nombre, descripcion, imagen}) {
         </Card.Text>
       </Card.Body>
     </Card>
-    // <button className='card' onClick={nextView} >
-    //   {nombre ? <h2>{nombre}</h2> : null}
-    //   <img src={imagen} loading='lazy'/>
-    //   <div className='descripcion'>
-    //     <span>{descripcion}</span>
-    //   </div> 
-    // </button>
   )
 }
 

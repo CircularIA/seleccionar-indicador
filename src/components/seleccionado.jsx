@@ -1,15 +1,12 @@
-import React,{useState, useRef} from 'react'
+import {useState, useRef, useContext} from 'react'
 
 import './../css/seleccionado.css'
 
-//Componentes
-import { Button } from 'bootstrap';
-import { Card } from 'react-bootstrap';
+import { Context } from '../context/context';
 
 function Seleccionado() {
-
-    const [seleccionado, setSeleccionado] = useState('AMBIENTAL');
-
+    // const [seleccionado, setSeleccionado] = useState('AMBIENTAL');
+    const {currentIndicator, setCurrentIndicator} = useContext(Context);
     const refBotones = useRef();
     const refLinea = useRef();
 
@@ -21,7 +18,7 @@ function Seleccionado() {
     }
     const changeSeleccionado = (e) => {
         if (!e.target.className.includes('active')) {
-            setSeleccionado(e.target.innerText);
+            setCurrentIndicator(e.target.innerText);
             removeActive();
             e.target.classList.add('active');
             refLinea.current.className = 'linea-'+e.target.innerText.toLowerCase();
@@ -30,11 +27,11 @@ function Seleccionado() {
     return (
         <div className=" seleccionado">
             <div>
-                <h4 >{seleccionado}</h4>
+                <h4 >{currentIndicator}</h4>
                 <hr ref={refLinea}></hr>
             </div>
-            <div className="botones">
-                <button className="boton ambiental" onClick={changeSeleccionado}>AMBIENTAL</button>
+            <div className="botones" ref={refBotones} >
+                <button className="boton ambiental active" onClick={changeSeleccionado}>AMBIENTAL</button>
                 <button className="boton economico" onClick={changeSeleccionado}>ECONÓMICO</button>
                 <button className="boton social" onClick={changeSeleccionado}>SOCIAL</button>
             </div>

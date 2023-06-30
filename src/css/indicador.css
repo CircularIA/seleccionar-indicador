@@ -47,6 +47,9 @@
     background-color: rgb(0, 185, 113);
     color: white;
 }
+.card:active{
+    transform: scale(0.98);
+}
 .card:hover img{
     filter: grayscale(80%);
 }
