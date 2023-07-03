@@ -1,8 +1,8 @@
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 
 import { Context } from '../context/context';
 
-import {CardView} from './../styles/Card.js'
+import {CardView, DivCard} from './../styles/Card.js'
 
 function Indicador({ nombre, descripcion, imagen, titulo = '' }) {
   const { setCurrentView, setCurrentIndicator } = useContext(Context);
@@ -16,13 +16,16 @@ function Indicador({ nombre, descripcion, imagen, titulo = '' }) {
   }
   
   return (
-    <CardView onClick={nextView} nombre={nombre}>
-      <CardView.Body>
+    <DivCard>
+      <CardView onClick={nextView} nombre={nombre}>
         <CardView.Header nombre={nombre} > {nombre}</CardView.Header>
-        <CardView.Img src={imagen} nombre={nombre}></CardView.Img>
-        <CardView.Text nombre={nombre} >{descripcion}</CardView.Text>
-      </CardView.Body>
-    </CardView>
+        <CardView.Body>
+          <CardView.Img src={imagen} nombre={nombre}></CardView.Img>
+          <CardView.Text nombre={nombre} titulo={titulo} >{descripcion}</CardView.Text>
+        </CardView.Body>
+      </CardView>
+      <CardView.Footer nombre={nombre} titulo={titulo} >{titulo}</CardView.Footer>
+    </DivCard>
   )
 }
 

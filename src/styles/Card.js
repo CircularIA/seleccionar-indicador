@@ -11,10 +11,6 @@ export const CardView = styled(Card)`
     width: 370px;
     height: 370px;
     //Si tiene el nombre es porque es de segunda vista
-    ${props => props.nombre &&
-    css`
-      height: 280px;
-    `}
     /* Position */
     padding: 0% 1% 1% 0%;
     display: flex;
@@ -22,6 +18,12 @@ export const CardView = styled(Card)`
     align-items: center;
     text-align: center;
     justify-content: center;
+    ${props => props.nombre &&
+    css`
+      height: 280px;
+      justify-content: flex-start;
+      padding-top: 7%;
+    `}
     /* Design */
     border-radius: 8px;
     border: 1px solid #989898;
@@ -36,7 +38,7 @@ export const CardView = styled(Card)`
       background-color: #00B971;
       color: white;
       justify-content: flex-start;
-      padding-top: 6%;
+      padding-top: 7%;
     }
     &:active{
       transform: scale(0.98);
@@ -51,10 +53,18 @@ export const CardView = styled(Card)`
     font-weight: 300;
     line-height: normal;
     letter-spacing: 2.8px;
+    ${props => props.nombre &&
+    css`
+      margin-bottom: 10%;
+      ${CardView}:hover & {
+        margin-bottom: 4%;
+      }
+    `}
   `
   CardView.Img = styled(Card.Img)`
     max-width: 100%;
     max-height: 100%;
+
   `
   CardView.Text = styled(Card.Text)`
     /* Sizes */
@@ -74,5 +84,32 @@ export const CardView = styled(Card)`
     ${CardView}:hover & {
       display: block;
       margin-top: 20%;
+      ${props => props.nombre &&
+      css`
+        margin-top: 2%;  
+      `}
+      ${props => props.titulo === 'Social' &&
+      css`
+        margin-top: 5%;`}
     }
   `
+CardView.Footer = styled(Card.Footer)`
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  font-size: 28px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: 2.8px;
+  text-transform: uppercase;
+  margin-top: 5%;
+`
+
+export const DivCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`

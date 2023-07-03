@@ -19,13 +19,10 @@ function Main() {
             <h2>¿QUE TIPO DE INDICADOR QUIERES CONOCER</h2>
             <div className="indicadoresFlex">
                 {datos.map((indicador, index) => {
-                    return <div className="tituloClass" key={index}>
-                        <Indicador descripcion={indicador.descripcion} 
+                    return <Indicador key={index} descripcion={indicador.descripcion} 
                         imagen={indicador.imagen} 
                         titulo={indicador.titulo} >
-                        </Indicador>
-                        <span>{indicador.titulo}</span>
-                    </div>
+                        </Indicador> 
                 })}
             </div>
         </div>
