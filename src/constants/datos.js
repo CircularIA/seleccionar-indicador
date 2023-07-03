@@ -1,7 +1,7 @@
 //Recursos
-import ImagenAmbiental from './../img/Iconos/ICONOS PROVISORIOS_AMBIENTAL.svg'
-import ImagenEconomico from './../img/Iconos/ICONOS PROVISORIOS_ECO.svg'
-import ImagenSocial from './../img/Iconos/ICONOS PROVISORIOS_SOCIAL.svg'
+import ImagenAmbiental from './../img/Iconos/Ambiental.svg'
+import ImagenEconomico from './../img/Iconos/Economico.svg'
+import ImagenSocial from './../img/Iconos/Social.svg'
 import ImagenFlujos from './../img/Iconos/Flujos.svg'
 import ImagenAgua from './../img/Iconos/Agua.svg'
 import ImagenEmisiones from './../img/Iconos/Emisiones.svg'
