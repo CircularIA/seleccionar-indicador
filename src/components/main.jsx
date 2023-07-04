@@ -6,6 +6,7 @@ import './../css/main.css'
 import Indicador from './indicador'
 import Search from './search';
 import Seleccionado from './seleccionado';
+import {Content, H2, IndicadoresFlex, SearchBox, IndicadoresBox} from './../styles/Content.js'
 //Recursos
 import { datos, datosTypes } from '../constants/datos';
 //Context
@@ -15,32 +16,32 @@ function Main() {
     
     const {currentView} = useContext(Context);
     if (currentView == 0) {
-        return <div className='content'>
-            <h2>¿QUE TIPO DE INDICADOR QUIERES CONOCER</h2>
-            <div className="indicadoresFlex">
+        return <Content>
+            <H2>¿QUE TIPO DE INDICADOR QUIERES CONOCER</H2>
+            <IndicadoresFlex>
                 {datos.map((indicador, index) => {
                     return <Indicador key={index} descripcion={indicador.descripcion} 
                         imagen={indicador.imagen} 
                         titulo={indicador.titulo} >
                         </Indicador> 
                 })}
-            </div>
-        </div>
+            </IndicadoresFlex>
+        </Content>
     } else if (currentView == 1) {
         return (
-            <div className='content secondView'>
-                <div className="searchBox">
+            <Content second="true">
+                <SearchBox>
                     <Search></Search>
-                </div>
-                <div className="indicadoresBox">
+                </SearchBox>
+                <IndicadoresBox>
                     <Seleccionado></Seleccionado>
-                </div>
-                <div className="indicadoresFlex indicadoresCard">
+                </IndicadoresBox>
+                <IndicadoresFlex second="true">
                     {datosTypes.map((indicador, index) => {
-                        return <Indicador className='childIndicador' key={index} nombre={indicador.nombre} descripcion={indicador.descripcion} imagen={indicador.imagen} ></Indicador>
+                        return <Indicador key={index} nombre={indicador.nombre} descripcion={indicador.descripcion} imagen={indicador.imagen} ></Indicador>
                     })}
-                </div>
-            </div>
+                </IndicadoresFlex>
+            </Content>
         )
     } else if (currentView == 2){
         return (
