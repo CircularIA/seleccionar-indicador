@@ -3,7 +3,26 @@ import { Card } from 'react-bootstrap'
 import { styled, css, keyframes } from 'styled-components';
 
 
-export const CardView = styled(Card)`
+
+const animacion = (distancia) =>keyframes`
+    0% {
+      transform: translate(0,0);
+      /* transform: rotate(0deg); */
+    }
+    100% {
+      transform: translate(0,${distancia}px);
+    }
+  `
+const animacionText = (inicial, distancia) => keyframes`
+  0% {
+    transform: translate(0,${inicial}px);
+  }
+  100% {
+    transform: translate(0, ${distancia}px );
+  }
+`
+
+const CardView = styled(Card)`
     /* Sizes */
     font-size: 0.9em;
     max-height: max-content;
@@ -35,15 +54,39 @@ export const CardView = styled(Card)`
     cursor: pointer;
     transition: border-color 0.25s;
     &:hover{
-      background-color: #00B971;
+      ${(props) => {
+        if (props.currentIndicator === 'SOCIAL' && props.nombre){
+          return css`
+            background-color: #2D7DD2;
+          `
+        }
+        else if (props.currentIndicator === 'ECONÓMICO' && props.nombre){
+          return css`
+            background-color: #F3A430;
+          `
+        }
+        else{
+          return css`
+            background-color: #00B971;
+          `
+        }
+      } 
+      }
+      /* background-color: #00B971; */
       color: white;
       justify-content: flex-start;
-      padding-top: 7%;
+      ${props => props.nombre ?
+      css`
+        padding-top: 7%;
+      ` : css`
+        padding-top: 28%;
+      `}
     }
     &:active{
       transform: scale(0.98);
     }
   `
+export default CardView;
   CardView.Header = styled(Card.Header)`
     color: #000;
     text-align: center;
@@ -56,15 +99,24 @@ export const CardView = styled(Card)`
     ${props => props.nombre &&
     css`
       margin-bottom: 10%;
-      ${CardView}:hover & {
-        margin-bottom: 4%;
-      }
+      /* ${CardView}:hover & {
+        margin-bottom: 4%
+      } */
     `}
   `
   CardView.Img = styled(Card.Img)`
     max-width: 100%;
     max-height: 100%;
-
+    ${CardView}:hover & {
+      ${props => props.nombre ?
+      css`
+        animation: ${animacion(-15)} 0.5s linear;
+        animation-fill-mode: forwards;
+      `: css`
+        animation: ${animacion(-60)} 0.5s linear;
+        animation-fill-mode: forwards;
+      `}
+    }
   `
   CardView.Text = styled(Card.Text)`
     /* Sizes */
@@ -83,16 +135,28 @@ export const CardView = styled(Card)`
     `}
     ${CardView}:hover & {
       display: block;
-      margin-top: 20%;
-      ${props => props.nombre &&
+      /* margin-top: 20%; */
+      ${props => props.nombre ?
       css`
-        margin-top: 2%;  
+        /* margin-top: 2%;   */
+        animation: ${animacionText(10, -10)} 0.5s linear;
+        animation-fill-mode: forwards;
+      ` :
+      css`
+        animation: ${animacionText(15, -15)} 0.5s linear;
+        animation-fill-mode: forwards;
       `}
       ${props => props.titulo === 'Social' &&
       css`
-        margin-top: 5%;`}
+        //Agregar animacion debido a que el texto es muy largo
+        animation: ${animacionText(0, -60)} 0.5s linear;
+        animation-fill-mode: forwards;
+      `
+      }
     }
   `
+
+
 CardView.Footer = styled(Card.Footer)`
   justify-content: center;
   align-items: center;

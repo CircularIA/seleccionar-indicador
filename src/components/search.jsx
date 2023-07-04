@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Form } from 'react-bootstrap';
 import { InputGroup } from 'react-bootstrap';
 
@@ -15,6 +13,7 @@ function Search() {
                 aria-label="Default"
                 aria-describedby="inputGroup-sizing-default"
                 className='inputText'
+                placeholder="Buscar"
             />
             <InputGroup.Text id="inputGroup-sizing-default">
                 <div className="classSearch">

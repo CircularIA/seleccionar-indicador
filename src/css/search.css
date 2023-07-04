@@ -5,14 +5,16 @@
 }
 .inputText{
     border-radius: 40px;
-    height: 30px;
-    width: 311px;
+    width: 311.654px;
+    height: 56.923px;
     margin-right: 2%;
+    border: none;
+    padding: 3%;
 }
 .classSearch{
     border-radius: 50%;
-    width: 35px;
-    height: 35px;
+    width: 45.538px;
+    height: 45.538px;
     background-color: rgba(0, 185, 113, 1);
     display: flex;
     align-items: center;

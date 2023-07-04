@@ -2,10 +2,10 @@ import { useContext } from 'react'
 
 import { Context } from '../context/context';
 
-import {CardView, DivCard} from './../styles/Card.js'
+import CardView, {DivCard} from './../styles/Card.js'
 
 function Indicador({ nombre, descripcion, imagen, titulo = '' }) {
-  const { setCurrentView, setCurrentIndicator } = useContext(Context);
+  const { setCurrentView, currentIndicator,  setCurrentIndicator } = useContext(Context);
   const nextView = () => {
     setCurrentView((e) =>
       e + 1
@@ -14,10 +14,10 @@ function Indicador({ nombre, descripcion, imagen, titulo = '' }) {
       setCurrentIndicator(titulo.toUpperCase())
     }
   }
-  
+  console.log(currentIndicator)
   return (
     <DivCard>
-      <CardView onClick={nextView} nombre={nombre}>
+      <CardView onClick={nextView} nombre={nombre} currentIndicator={currentIndicator}>
         <CardView.Header nombre={nombre} > {nombre}</CardView.Header>
         <CardView.Body>
           <CardView.Img src={imagen} nombre={nombre}></CardView.Img>
