@@ -55,12 +55,12 @@ const CardView = styled(Card)`
     transition: border-color 0.25s;
     &:hover{
       ${(props) => {
-        if (props.currentIndicator === 'SOCIAL' && props.nombre){
+        if (props.currentindicator === 'SOCIAL' && props.nombre){
           return css`
             background-color: #2D7DD2;
           `
         }
-        else if (props.currentIndicator === 'ECONÓMICO' && props.nombre){
+        else if (props.currentindicator === 'ECONÓMICO' && props.nombre){
           return css`
             background-color: #F3A430;
           `

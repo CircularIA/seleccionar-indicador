@@ -11,17 +11,17 @@ import ImagenOrganizacional from './../img/Iconos/Organizacional.svg'
 
 export const datos = [
     {
-        titulo: 'Ambiental',
+        titulo: 'AMBIENTAL',
         descripcion: 'La capacidad de mantener la productividad y biodiversidad de los recursos naturales a lo largo del plazo',
         imagen: ImagenAmbiental
     },
     {
-        titulo: 'Economico',
+        titulo: 'ECONÓMICO',
         descripcion: 'La capacidad de mantener la productividad y biodiversidad de los recursos naturales a lo largo del plazo',
         imagen: ImagenEconomico
     },
     {
-        titulo: 'Social',
+        titulo: 'SOCIAL',
         descripcion: 'La capacidad de mantener la productividad y biodiversidad de los recursos naturales a lo largo del plazo',
         imagen: ImagenSocial
     }

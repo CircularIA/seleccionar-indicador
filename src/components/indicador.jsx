@@ -10,14 +10,12 @@ function Indicador({ nombre, descripcion, imagen, titulo = '' }) {
     setCurrentView((e) =>
       e + 1
     )
-    if (titulo) {
-      setCurrentIndicator(titulo.toUpperCase())
-    }
+    titulo ? setCurrentIndicator(titulo.toUpperCase()) : setCurrentIndicator(nombre.toUpperCase());
   }
   console.log(currentIndicator)
   return (
     <DivCard>
-      <CardView onClick={nextView} nombre={nombre} currentIndicator={currentIndicator}>
+      <CardView onClick={nextView} nombre={nombre} currentindicator={currentIndicator}>
         <CardView.Header nombre={nombre} > {nombre}</CardView.Header>
         <CardView.Body>
           <CardView.Img src={imagen} nombre={nombre}></CardView.Img>

@@ -1,4 +1,4 @@
-import {useState, useRef, useContext} from 'react'
+import {useState, useRef, useContext, useEffect} from 'react'
 
 import './../css/seleccionado.css'
 
@@ -24,6 +24,15 @@ function Seleccionado() {
             refLinea.current.className = 'linea-'+e.target.innerText.toLowerCase();
         }
     }
+    //Setear actual configuracion activa}
+    useEffect(() => {
+        refBotones.current.childNodes.forEach((e)=>{
+            if (e.innerText === currentIndicator) {
+                e.classList.add('active');
+                refLinea.current.className = 'linea-'+e.innerText.toLowerCase();
+            }
+        })
+    },[])
     return (
         <div className=" seleccionado">
             <div>
@@ -31,7 +40,7 @@ function Seleccionado() {
                 <hr ref={refLinea}></hr>
             </div>
             <div className="botones" ref={refBotones} >
-                <button className="boton ambiental active" onClick={changeSeleccionado}>AMBIENTAL</button>
+                <button className="boton ambiental" onClick={changeSeleccionado}>AMBIENTAL</button>
                 <button className="boton economico" onClick={changeSeleccionado}>ECONÓMICO</button>
                 <button className="boton social" onClick={changeSeleccionado}>SOCIAL</button>
             </div>

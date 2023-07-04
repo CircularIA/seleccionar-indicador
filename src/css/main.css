@@ -9,17 +9,8 @@
     padding-left: 2%;
 }
 .content > h2{
-    margin-left: 0%;
     margin-top: 10%;
     margin-bottom: 3%;
-}
-.tituloClass{
-    display: flex;
-    flex-direction: column;
-}
-.tituloClass span{
-    margin: 10% 0% 0% 30%;
-    text-transform: uppercase;
 }
 .secondView{
     display:grid;
@@ -31,18 +22,6 @@
     grid-column-end: 4;
     grid-row-start: 1;
 }
-
-.indicadores{
-    /* display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 2%;   */
-    display: grid;
-    grid-template-columns: minmax(40px, 1fr) minmax(40px, 1fr) minmax(40px, 1fr);
-    justify-content: space-around;
-    row-gap: 5%;
-}
-
 .indicadoresFlex{
     display: flex;
     flex-direction: row;

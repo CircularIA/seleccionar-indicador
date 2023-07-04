@@ -42,6 +42,12 @@ function Main() {
                 </div>
             </div>
         )
+    } else if (currentView == 2){
+        return (
+            <div className="thirdView">
+                <h2>Tercera vista</h2>
+            </div>
+        )
     }
 }
 
