@@ -1,7 +1,8 @@
 import { styled, css, keyframes } from 'styled-components';
 
 export const Content = styled.div`
-    margin-top: 1%;
+    /* margin-top: 1%; */
+    margin-top: 15%;
     max-width: 100%;
     padding-left: 2%;
     ${props => props.second &&css`

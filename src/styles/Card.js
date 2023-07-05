@@ -110,10 +110,10 @@ export default CardView;
     ${CardView}:hover & {
       ${props => props.nombre ?
       css`
-        animation: ${animacion(-15)} 0.5s linear;
+        animation: ${animacion(-15)} 0.3s linear;
         animation-fill-mode: forwards;
       `: css`
-        animation: ${animacion(-60)} 0.5s linear;
+        animation: ${animacion(-60)} 0.3s linear;
         animation-fill-mode: forwards;
       `}
     }
@@ -139,11 +139,11 @@ export default CardView;
       ${props => props.nombre ?
       css`
         /* margin-top: 2%;   */
-        animation: ${animacionText(10, -10)} 0.5s linear;
+        animation: ${animacionText(10, -10)} 0.3s linear;
         animation-fill-mode: forwards;
       ` :
       css`
-        animation: ${animacionText(15, -15)} 0.5s linear;
+        animation: ${animacionText(15, -15)} 0.3s linear;
         animation-fill-mode: forwards;
       `}
       ${props => props.titulo === 'Social' &&
