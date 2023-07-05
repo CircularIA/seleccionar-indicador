@@ -1,7 +1,5 @@
 //Bibliotecas
 import React, { useContext, useState } from 'react'
-//Estilo
-import './../css/main.css'
 //Componentes
 import Indicador from './indicador'
 import Search from './search';
@@ -13,8 +11,9 @@ import { datos, datosTypes } from '../constants/datos';
 import { Context } from '../context/context';
 
 function Main() {
-    
+    //Contexto
     const {currentView} = useContext(Context);
+    
     if (currentView == 0) {
         return <Content>
             <H2>¿QUE TIPO DE INDICADOR QUIERES CONOCER</H2>
@@ -36,7 +35,7 @@ function Main() {
                 <IndicadoresBox>
                     <Seleccionado></Seleccionado>
                 </IndicadoresBox>
-                <IndicadoresFlex second="true">
+                <IndicadoresFlex>
                     {datosTypes.map((indicador, index) => {
                         return <Indicador key={index} nombre={indicador.nombre} descripcion={indicador.descripcion} imagen={indicador.imagen} ></Indicador>
                     })}
