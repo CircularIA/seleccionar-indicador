@@ -17,8 +17,12 @@ function App() {
             <NavBar></NavBar>
         </div>
         <div className="main">
-          <Main></Main>
-          <Footer></Footer>
+          <div className="content">
+            <Main></Main>
+          </div>
+          <div className="footer">
+            <Footer></Footer>
+          </div>
         </div>
       </Container>
     </Datos>
