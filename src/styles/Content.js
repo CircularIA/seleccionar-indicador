@@ -2,9 +2,13 @@ import { styled, css, keyframes } from 'styled-components';
 
 export const Content = styled.div`
     /* margin-top: 1%; */
-    margin-top: 15%;
+    margin-top: 10%;
+    padding: 0% 8% 0% 2%;
+    /* Vista para resolucion en figma */
+    @media (min-height: 1024px) {
+        margin-top: 15%;
+    }
     max-width: 100%;
-    padding-left: 2%;
     ${props => props.second &&css`
         margin-top: 2%;
         display: flex;
@@ -12,6 +16,9 @@ export const Content = styled.div`
         justify-content: flex-start;
         align-items: flex-start;
         align-content: flex-start;
+        @media (min-height: 1024px) {
+            margin-top: 2%;
+        }
     `}
 `
 export const H2 = styled.h2`
@@ -22,13 +29,14 @@ export const IndicadoresFlex = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     align-items: flex-start;
+    margin-top: 2%;
     gap: 1% 3%;
 `
 export const SearchBox = styled.div`
     /* grid-column-start: 3;
     grid-column-end: 4; */
     align-self: flex-end;
-    padding-right: 7.5%;
+    /* padding-right: 7.5%; */
 `
 export const IndicadoresBox = styled.div`
     /* grid-column-start: 1;

@@ -27,35 +27,176 @@ export const datos = [
     }
 ]
 
-export const datosTypes = [
+export const tiposAmbiental = [
     {
-        nombre: 'FLUJOS',
+        nombre: 'Flujos',
         imagen: ImagenFlujos,
         descripcion: 'Indicadores relacionados con el nivel de circularidad de los flujos de entrada y salida'
     },
     {
-        nombre: 'AGUA',
-        imagen: ImagenAgua,
-        descripcion: 'Indicadores relacionados con el nivel de circularidad de los flujos de entrada y salida'
-    },
-    {
-        nombre: 'EMISIONES',
+        nombre: 'Emisiones',
         imagen: ImagenEmisiones,
         descripcion: 'Indicadores relacionados con el nivel de circularidad de los flujos de entrada y salida'
     },
     {
-        nombre: 'ENERGIA',
+        nombre: 'Energia',
         imagen: ImagenEnergia,
         descripcion: 'Indicadores relacionados con el nivel de circularidad de los flujos de entrada y salida'
     },
     {
-        nombre: 'EFICIENCIA',
+        nombre: 'Eficiencia',
         imagen: ImagenEficiencia,
         descripcion: 'Indicadores relacionados con el nivel de circularidad de los flujos de entrada y salida'
     },
     {
-        nombre: 'ORGANIZACIONAL',
+        nombre: 'Agua',
+        imagen: ImagenAgua,
+        descripcion: 'Indicadores relacionados con el nivel de circularidad de los flujos de entrada y salida'
+    },
+    {
+        nombre: 'Organizacional',
         imagen: ImagenOrganizacional,
+        descripcion: 'Indicadores relacionados con el nivel de circularidad de los flujos de entrada y salida'
+    }
+]
+
+export const datosGeneral = [
+    {
+        nombre: "Porcentaje de valorización ciclo biológico",
+        descripcion: "Residuos que son valorizados del total de los organicos producidos",
+        fuente: 'CTI',
+        categoria: 'Ambiental',
+        tipo: 'Flujos',
+        medicion: "Porcentaje de recuperación real",
+        porcentajeRR:{
+            formula:{
+                expresion: 'ax+by+c'
+            },
+            residuos:{
+                generadosTotales: 30,
+                recuperadosBiologicos: 50,
+                recuperadosTecnicos: 70
+            },
+            total: 24
+        }
+    },
+    {
+        nombre: "Porcentaje de valorización ciclo técnico",
+        descripcion: "Residuos que son valorizados del total de los imperecedores producidos",
+        fuente: 'CTI',
+        categoria: 'Ambiental',
+        tipo: 'Flujos',
+        medicion: "Porcentaje de recuperación real",
+        porcentajeRR:{
+            formula:{
+                expresion: 'ax+by+c'
+            },
+            residuos:{
+                generadosTotales: 30,
+                recuperadosBiologicos: 50,
+                recuperadosTecnicos: 70
+            },
+            total: 34
+        }
+    },
+    {
+        nombre: "Porcentaje circularidad de entrada",
+        descripcion: "Materiales de origen sostenible del total de los utilizados en los procesos de la empresa",
+        fuente: 'CTI',
+        categoria: 'Ambiental',
+        tipo: 'Flujos',
+        medicion: "Porcentaje de recuperación real",
+        porcentajeRR:{
+            formula:{
+                expresion: 'ax+by+c'
+            },
+            residuos:{
+                generadosTotales: 30,
+                recuperadosBiologicos: 50,
+                recuperadosTecnicos: 70
+            },
+            total: 44
+        }
+    },
+    {
+        nombre: "Porcentaje circularidad de salida",
+        descripcion: "Residuos que son valorizados del total de los generados en los procesos de la empresa",
+        fuente: 'CTI',
+        tipo: 'Flujos',
+        medicion: "Porcentaje de recuperación real",
+        porcentajeRR:{
+            formula:{
+                expresion: 'ax+by+c'
+            },
+            residuos:{
+                generadosTotales: 30,
+                recuperadosBiologicos: 50,
+                recuperadosTecnicos: 70
+            },
+            total: 80
+        }
+    },
+    {
+        nombre: "Porcentaje circularidad de salida",
+        descripcion: "Residuos que son valorizados del total de los generados en los procesos de la empresa",
+        fuente: 'CTI',
+        tipo: 'Flujos',
+        medicion: "Porcentaje de recuperación real",
+        porcentajeRR:{
+            formula:{
+                expresion: 'ax+by+c'
+            },
+            residuos:{
+                generadosTotales: 30,
+                recuperadosBiologicos: 50,
+                recuperadosTecnicos: 70
+            },
+            total: 25
+        }
+    }
+]
+export const tiposEconomico = [
+    {
+        nombre: 'Ingreso Circ.',
+        imagen: ImagenFlujos,
+        descripcion: 'Indicadores relacionados con el nivel de circularidad de los flujos de entrada y salida'
+    },
+    {
+        nombre: 'Ahorro',
+        imagen: ImagenAgua,
+        descripcion: 'Indicadores relacionados con el nivel de circularidad de los flujos de entrada y salida'
+    },
+    {
+        nombre: 'Inversion Circ.',
+        imagen: ImagenEmisiones,
+        descripcion: 'Indicadores relacionados con el nivel de circularidad de los flujos de entrada y salida'
+    }
+]
+
+export const tiposSocial = [
+    {
+        nombre: 'Empleos',
+        imagen: ImagenFlujos,
+        descripcion: 'Indicadores relacionados con el nivel de circularidad de los flujos de entrada y salida'
+    },
+    {
+        nombre: 'Educacion',
+        imagen: ImagenAgua,
+        descripcion: 'Indicadores relacionados con el nivel de circularidad de los flujos de entrada y salida'
+    },
+    {
+        nombre: 'Seguridad',
+        imagen: ImagenEmisiones,
+        descripcion: 'Indicadores relacionados con el nivel de circularidad de los flujos de entrada y salida'
+    },
+    {
+        nombre: 'Sinergía',
+        imagen: ImagenEmisiones,
+        descripcion: 'Indicadores relacionados con el nivel de circularidad de los flujos de entrada y salida'
+    },
+    {
+        nombre: 'Interno',
+        imagen: ImagenEmisiones,
         descripcion: 'Indicadores relacionados con el nivel de circularidad de los flujos de entrada y salida'
     }
 ]

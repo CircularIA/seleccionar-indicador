@@ -1,14 +1,17 @@
 //Bibliotecas
-import React, { useContext, useState } from 'react'
+import { useContext} from 'react'
 //Componentes
 import Indicador from './indicador'
 import Search from './search';
 import Seleccionado from './seleccionado';
+import IndicadorValor from './indicadorValor';
+//Styles
 import {Content, H2, IndicadoresFlex, SearchBox, IndicadoresBox} from './../styles/Content.js'
 //Recursos
-import { datos, datosTypes } from '../constants/datos';
+import { datos, tiposAmbiental, tiposEconomico, tiposSocial, datosGeneral} from '../constants/datos';
 //Context
 import { Context } from '../context/context';
+import Filters from './filters';
 
 function Main() {
     //Contexto
@@ -36,7 +39,7 @@ function Main() {
                     <Seleccionado></Seleccionado>
                 </IndicadoresBox>
                 <IndicadoresFlex>
-                    {datosTypes.map((indicador, index) => {
+                    {tiposAmbiental.map((indicador, index) => {
                         return <Indicador key={index} nombre={indicador.nombre} descripcion={indicador.descripcion} imagen={indicador.imagen} ></Indicador>
                     })}
                 </IndicadoresFlex>
@@ -44,9 +47,23 @@ function Main() {
         )
     } else if (currentView == 2){
         return (
-            <div className="thirdView">
-                <h2>Tercera vista</h2>
-            </div>
+            <Content second="true">
+                <SearchBox>
+                    <Search></Search>
+                </SearchBox>
+                <IndicadoresBox>
+                    <Filters tiposAmbiental={tiposAmbiental} tiposEconomico={tiposEconomico} tiposSocial = {tiposSocial} ></Filters>
+                </IndicadoresBox>
+                <IndicadoresFlex>
+                    {/* {datosGeneral.filter((item) => {
+                        item.tipo === 'Flujos'
+                    })} */}
+                    <IndicadorValor datos={datosGeneral[0]} />
+                    <IndicadorValor datos={datosGeneral[1]} />
+                    <IndicadorValor datos={datosGeneral[2]} />
+                    <IndicadorValor datos={datosGeneral[3]} calc="true"/>
+                </IndicadoresFlex>
+            </Content>
         )
     }
 }

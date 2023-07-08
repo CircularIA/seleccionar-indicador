@@ -18,6 +18,14 @@ function Footer() {
                 <CircleFill color='#00B971'></CircleFill>
             </div>
         )
+    } else if (currentView == 2){
+        return (
+            <div className="contentFooter">
+                <CircleFill color='#989898' className='firstCircle'></CircleFill>
+                <CircleFill color='#989898' className='firstCircle'></CircleFill>
+                <CircleFill color='#00B971'></CircleFill>
+            </div>
+        )
     }
 }
 

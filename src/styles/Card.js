@@ -1,9 +1,5 @@
-
 import { Card } from 'react-bootstrap'
 import { styled, css, keyframes } from 'styled-components';
-
-
-
 const animacion = (distancia) =>keyframes`
     0% {
       transform: translate(0,0);
@@ -21,8 +17,7 @@ const animacionText = (inicial, distancia) => keyframes`
     transform: translate(0, ${distancia}px );
   }
 `
-
-const CardView = styled(Card)`
+export const CardView = styled(Card)`
     /* Sizes */
     font-size: 0.9em;
     max-height: max-content;
@@ -96,6 +91,7 @@ export default CardView;
     font-weight: 300;
     line-height: normal;
     letter-spacing: 2.8px;
+    text-transform: uppercase;
     ${props => props.nombre &&
     css`
       margin-bottom: 10%;
@@ -155,8 +151,6 @@ export default CardView;
       }
     }
   `
-
-
 CardView.Footer = styled(Card.Footer)`
   justify-content: center;
   align-items: center;
@@ -170,7 +164,6 @@ CardView.Footer = styled(Card.Footer)`
   text-transform: uppercase;
   margin-top: 5%;
 `
-
 export const DivCard = styled.div`
   display: flex;
   flex-direction: column;

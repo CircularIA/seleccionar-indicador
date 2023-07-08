@@ -8,11 +8,10 @@ import NavBar from './components/navbar'
 import Footer from './components/footer'
 import { Datos } from './context/context';
 
-
 function App() {
   return (
     <Datos>
-      <Container>
+      <Container fluid className='container'>
         <div className="navbar">
             <NavBar></NavBar>
         </div>

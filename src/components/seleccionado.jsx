@@ -1,7 +1,7 @@
 import {useState, useRef, useContext, useEffect} from 'react'
 
 import './../css/seleccionado.css'
-
+import {H4, HR} from "../styles/Seleccionado";
 import { Context } from '../context/context';
 
 function Seleccionado() {
@@ -36,8 +36,8 @@ function Seleccionado() {
     return (
         <div className=" seleccionado">
             <div>
-                <h4 >{currentIndicator}</h4>
-                <hr ref={refLinea}></hr>
+                <H4>{currentIndicator}</H4>
+                <HR ref={refLinea}></HR>
             </div>
             <div className="botones" ref={refBotones} >
                 <button className="boton ambiental" onClick={changeSeleccionado}>AMBIENTAL</button>
