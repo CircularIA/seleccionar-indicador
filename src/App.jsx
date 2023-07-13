@@ -3,28 +3,30 @@ import './App.css'
 //Recurso Bootstrap
 import Container from 'react-bootstrap/Container';
 //Componentes
-import Main from './components/main'
-import NavBar from './components/navbar'
-import Footer from './components/footer'
+import Main from './pages/seleccionador/main'
+import NavBar from './pages/global/navbar'
+import Footer from './pages/global/footer'
 import { Datos } from './context/context';
-
+//MUI
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import { ColorModeContext, useMode } from "./theme";
 function App() {
+  const [theme, colorMode] = useMode();
   return (
-    <Datos>
-      <Container fluid className='container'>
-        <div className="navbar">
+    <ColorModeContext.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Datos>
+          <div className='app'>
             <NavBar></NavBar>
-        </div>
-        <div className="main">
-          <div className="content">
-            <Main></Main>
-          </div>
-          <div className="footer">
+            <div className="content">
+              <Main></Main>
+            </div>
             <Footer></Footer>
           </div>
-        </div>
-      </Container>
-    </Datos>
+        </Datos>
+      </ThemeProvider>
+    </ColorModeContext.Provider>
   )
 }
 

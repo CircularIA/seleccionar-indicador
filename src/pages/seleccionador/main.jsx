@@ -1,17 +1,17 @@
 //Bibliotecas
 import { useContext} from 'react'
 //Componentes
-import Indicador from './indicador'
-import Search from './search';
-import Seleccionado from './seleccionado';
-import IndicadorValor from './indicadorValor';
+import Indicador from '../../components/indicador'
+import Search from '../../components/search';
+import Seleccionado from '../../components/seleccionado';
+import IndicadorValor from '../../components/indicadorValor';
 //Styles
-import {Content, H2, IndicadoresFlex, SearchBox, IndicadoresBox} from './../styles/Content.js'
+import {Content, H2, IndicadoresFlex, SearchBox, IndicadoresBox} from '../../styles/Content.js'
 //Recursos
-import { datos, tiposAmbiental, tiposEconomico, tiposSocial, datosGeneral} from '../constants/datos';
+import { datos, tiposAmbiental, tiposEconomico, tiposSocial, datosGeneral} from '../../constants/datos';
 //Context
-import { Context } from '../context/context';
-import Filters from './filters';
+import { Context } from '../../context/context';
+import Filters from '../../components/filters';
 
 function Main() {
     //Contexto

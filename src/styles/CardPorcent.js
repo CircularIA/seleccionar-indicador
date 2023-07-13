@@ -3,6 +3,7 @@ import { styled, css} from 'styled-components';
 
 export const CardPorcent = styled(Card)`
     /* Sizes */
+    /* width: 500px; */
     width: 500px;
     height: 200px;
     border-radius: 10px;
@@ -46,3 +47,4 @@ export const CardPorcent = styled(Card)`
         line-height: normal;
         /* Position */
     `
+

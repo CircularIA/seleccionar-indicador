@@ -1,4 +1,4 @@
-import {useState, useRef, useContext, useEffect} from 'react'
+import {useRef, useContext, useEffect} from 'react'
 
 import './../css/seleccionado.css'
 import {H4, HR} from "../styles/Seleccionado";

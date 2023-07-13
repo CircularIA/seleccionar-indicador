@@ -1,6 +1,6 @@
 import { CardPorcent } from '../styles/CardPorcent';
-
 import ProgressBar from "@ramonak/react-progress-bar";
+
 
 function IndicadorValor({ datos, calc }) {
 

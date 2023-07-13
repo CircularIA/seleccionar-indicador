@@ -1,13 +1,13 @@
 //Recursos
-import ImagenAmbiental from './../img/Iconos/Ambiental.svg'
-import ImagenEconomico from './../img/Iconos/Economico.svg'
-import ImagenSocial from './../img/Iconos/Social.svg'
-import ImagenFlujos from './../img/Iconos/Flujos.svg'
-import ImagenAgua from './../img/Iconos/Agua.svg'
-import ImagenEmisiones from './../img/Iconos/Emisiones.svg'
-import ImagenEnergia from './../img/Iconos/Energia.svg'
-import ImagenEficiencia from './../img/Iconos/Eficiencia.svg'
-import ImagenOrganizacional from './../img/Iconos/Organizacional.svg'
+import ImagenAmbiental from './../assets/Iconos/Ambiental.svg'
+import ImagenEconomico from './../assets/Iconos/Economico.svg'
+import ImagenSocial from './../assets/Iconos/Social.svg'
+import ImagenFlujos from './../assets/Iconos/Flujos.svg'
+import ImagenAgua from './../assets/Iconos/Agua.svg'
+import ImagenEmisiones from './../assets/Iconos/Emisiones.svg'
+import ImagenEnergia from './../assets/Iconos/Energia.svg'
+import ImagenEficiencia from './../assets/Iconos/Eficiencia.svg'
+import ImagenOrganizacional from './../assets/Iconos/Organizacional.svg'
 
 export const datos = [
     {
@@ -70,7 +70,8 @@ export const datosGeneral = [
         medicion: "Porcentaje de recuperación real",
         porcentajeRR:{
             formula:{
-                expresion: 'ax+by+c'
+                expresion: 'ax+by+c',
+                cVariables: 3
             },
             residuos:{
                 generadosTotales: 30,

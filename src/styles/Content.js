@@ -29,8 +29,10 @@ export const IndicadoresFlex = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     align-items: flex-start;
-    margin-top: 2%;
     gap: 1% 3%;
+    /* display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+    margin-top: 2%;
 `
 export const SearchBox = styled.div`
     /* grid-column-start: 3;

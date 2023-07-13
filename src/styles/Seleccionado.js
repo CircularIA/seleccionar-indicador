@@ -58,6 +58,7 @@ export const BotonCalcular = styled(Boton)`
     line-height: normal;
     text-transform: capitalize;
     display: flex;
+    cursor: pointer;
     align-items: center;
     &:hover{
         background: #4AD256;

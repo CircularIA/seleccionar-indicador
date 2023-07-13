@@ -1,8 +1,8 @@
 import './../css/filters.css'
 import { Seleccionado, H4, HR, Botones, BotonCalcular, BotonAmbiental, BotonEconomico, BotonSocial} from "../styles/Seleccionado";
 //Recursos
-import ImagenCalcular from '../img/Iconos/icon_bar.svg';
-import ImagenNoCalcular from '../img/Iconos/icon_hard.svg'
+import ImagenCalcular from '../assets/Iconos/icon_bar.svg';
+import ImagenNoCalcular from '../assets/Iconos/icon_hard.svg'
 
 function Filters({tiposAmbiental, tiposEconomico, tiposSocial}) {
 
