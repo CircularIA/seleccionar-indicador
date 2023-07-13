@@ -128,6 +128,8 @@ export const themeSettings = (mode) => {
             h2: {
                 fontFamily: ['Roboto', 'sans-serif'].join(','),
                 fontSize: 32,
+                fontWeight: 700,
+                lineHeight: 'normal',
             },
             h3: {
                 fontFamily: ['Roboto', 'sans-serif'].join(','),
@@ -145,6 +147,9 @@ export const themeSettings = (mode) => {
                 fontFamily: ['Roboto', 'sans-serif'].join(','),
                 fontSize: 16,
             },
+            divider:{
+                backgroundColor: '#989898',
+            }
         },
     };
 };

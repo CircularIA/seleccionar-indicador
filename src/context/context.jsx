@@ -5,7 +5,7 @@ export const Context = createContext();
 
 export const Datos = ({children}) => {
     const [currentIndicator, setCurrentIndicator] = useState("");
-    const [currentView, setCurrentView] = useState(0)
+    const [currentView, setCurrentView] = useState(3)
     return (
         <Context.Provider value={{currentView, setCurrentView, currentIndicator, setCurrentIndicator}}>
             {children}

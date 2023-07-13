@@ -21,8 +21,8 @@ function App() {
             <NavBar></NavBar>
             <div className="content">
               <Main></Main>
+              <Footer></Footer>
             </div>
-            <Footer></Footer>
           </div>
         </Datos>
       </ThemeProvider>
