@@ -11,11 +11,22 @@ import { Box, IconButton, Typography, useTheme } from '@mui/material';
 import { ColorModeContext, tokens } from "../../theme";
 import Grid from '@mui/material/Grid';
 import Divider from '@mui/material/Divider';
+import Button from '@mui/material/Button';
 //Recursos
 import { datos, tiposAmbiental, tiposEconomico, tiposSocial, datosGeneral } from '../../constants/datos';
 //Context
 import { Context } from '../../context/context';
 import Filters from '../../components/filters';
+import CardPorcent from '../../components/cardPorcent';
+import Card from '@mui/material/Card';
+//Cards from material ui
+import CardHeader from '@mui/material/CardHeader';
+import CardMedia from '@mui/material/CardMedia';
+import CardContent from '@mui/material/CardContent';
+import CardActions from '@mui/material/CardActions';
+
+import BarChart from '../../components/barChart';
+import PieChart from '../../components/pieChart';
 
 function Main() {
     //Styles
@@ -75,7 +86,7 @@ function Main() {
             </Content>
         )
     }
-    else if(currentView == 3){
+    else if (currentView == 3) {
         return (
             <Box
                 display='flex'
@@ -95,14 +106,98 @@ function Main() {
                         boxShadow: '0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25)'
                     }}
                 ></Divider>
-                <Grid container columnSpacing={{xs: 1,sm: 2, md: 3}} >
-                    <Grid item  xs={6} >
+                <Grid container
+                    columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+                    marginTop='2%'
+                >
+                    <Grid item xs={6} >
                         {/* Fuentes */}
+                        <CardPorcent source='CTI'
+                            type='Flujos'
+                            metric='Porcentaje de recuperacion real'
+                            dats={{
+                                'residuosTotales': 89
+                            }}
+                            form='ax+by+c'
+                        >
+                        </CardPorcent>
+                        
                     </Grid>
-                    <Grid item  xs={6}>
+                    <Grid item xs={6}>
                         {/* Graficos */}
+                        <Grid item>
+                            <Card
+                                sx={{
+                                    borderRadius: '10px',
+                                    border: '1px solid #989898',
+                                    background: '#FFF',
+                                    boxShadow: '4px 4px 10px 0px rgba(0, 0, 0, 0.25)',
+                                    textAlign: 'center',
+
+                                }}
+
+                            >
+                                <CardHeader
+                                    title='COMPORTAMIENTO HISTORICO'
+                                />
+                                <CardContent>
+                                    <Box
+                                        height='300px'
+                                        width='90%'
+                                    >
+                                        <BarChart></BarChart>
+                                    </Box>
+                                    <Box
+                                        height='200px'
+                                        display='flex'
+                                        flexDirection='row'
+                                    >
+                                        <PieChart></PieChart>
+                                        <PieChart></PieChart>
+                                        <PieChart></PieChart>
+                                    </Box>
+                                </CardContent>
+                            </Card>
+                        </Grid>
+                        <Box
+                            display='flex'
+                            flexDirection='row'
+                        >
+                            <Button
+                                sx={{
+                                    borderRadius: '10px',
+                                    paddingY: '1%',
+                                    flexGrow: 1,
+                                    background: colors.primary[500],
+                                    boxShadow: '4px 4px 10px 0px rgba(0, 0, 0, 0.25)',
+                                }}
+                            >
+                                <Typography
+                                    variant='h2'
+                                    color='#FFF'
+                                >
+                                    GRÁFICO
+                                </Typography>
+                            </Button>
+                            <Button
+                                sx={{
+                                    borderRadius: '10px',
+                                    paddingY: '1%',
+                                    flexGrow: 1,
+                                    background: '#B2B2B2',
+                                    boxShadow: '4px 4px 10px 0px rgba(0, 0, 0, 0.25)',
+                                }}
+                            >
+                                <Typography
+                                    variant='h2'
+                                    color='#FFF'
+                                >
+                                    ESQUEMA
+                                </Typography>
+                            </Button>
+                        </Box>
                     </Grid>
-                </Grid>       
+                </Grid>
             </Box>
         )
     }
