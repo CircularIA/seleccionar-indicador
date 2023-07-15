@@ -26,9 +26,6 @@ import CardActions from '@mui/material/CardActions';
 //Graphics
 import BarChart from '../../components/barChart';
 import PieChart from '../../components/pieChart';
-import PieGreen from '../../assets/Oval.svg'
-import PieRed from '../../assets/OvalRed.svg'
-import PieYellow from '../../assets/OvalYellow.svg';
 //Input and Select components
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -59,14 +56,23 @@ function Main() {
                 <Typography variant="h2" component="h2">
                     ¿QUE TIPO DE INDICADOR QUIERES CONOCER?
                 </Typography>
-                <IndicadoresFlex>
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        flexWrap: 'wrap',
+                        alignContent: 'flex-start',
+                        gap: '2%',
+                        marginTop: '2%',
+                    }}
+                >
                     {datos.map((indicador, index) => {
                         return <Indicador key={index} descripcion={indicador.descripcion}
                             imagen={indicador.imagen}
                             titulo={indicador.titulo} >
                         </Indicador>
                     })}
-                </IndicadoresFlex>
+                </Box>
             </Box>)
     } else if (currentView == 1) {
         return (
@@ -107,23 +113,40 @@ function Main() {
         )
     } else if (currentView == 2) {
         return (
-            <Content second="true">
-                <SearchBox>
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'flex-start',
+                    alignItems: 'flex-start',
+                    alignContent: 'flex-start',
+                }}
+            >   
+                <Box
+                    sx={{
+                        alignSelf: 'flex-end',
+                    }}
+                >
                     <Search></Search>
-                </SearchBox>
-                <IndicadoresBox>
+                </Box>
+                <Box>
                     <Filters tiposAmbiental={tiposAmbiental} tiposEconomico={tiposEconomico} tiposSocial={tiposSocial} ></Filters>
-                </IndicadoresBox>
-                <IndicadoresFlex>
-                    {/* {datosGeneral.filter((item) => {
-                        item.tipo === 'Flujos'
-                    })} */}
+                </Box>
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        flexWrap: 'wrap',
+                        alignContent: 'flex-start',
+                        gap: '2%',
+                    }}
+                >
                     <IndicadorValor datos={datosGeneral[0]} />
                     <IndicadorValor datos={datosGeneral[1]} />
                     <IndicadorValor datos={datosGeneral[2]} />
                     <IndicadorValor datos={datosGeneral[3]} calc="true" />
-                </IndicadoresFlex>
-            </Content>
+                </Box>
+            </Box>
         )
     }
     else if (currentView == 3) {

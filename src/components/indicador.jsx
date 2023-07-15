@@ -2,8 +2,8 @@ import { useContext } from 'react'
 
 import { Context } from '../context/context';
 
-import CardView, {DivCard} from './../styles/Card.js'
-
+import CardView from './../styles/Card.js'
+import { Box } from '@mui/material';
 function Indicador({ nombre, descripcion, imagen, titulo = '' }) {
   const { setCurrentView, currentIndicator,  setCurrentIndicator } = useContext(Context);
   const nextView = () => {
@@ -12,9 +12,15 @@ function Indicador({ nombre, descripcion, imagen, titulo = '' }) {
     )
     titulo ? setCurrentIndicator(titulo.toUpperCase()) : setCurrentIndicator(nombre.toUpperCase());
   }
-  console.log(currentIndicator)
   return (
-    <DivCard>
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
       <CardView onClick={nextView} nombre={nombre} currentindicator={currentIndicator}>
         <CardView.Header nombre={nombre} > {nombre}</CardView.Header>
         <CardView.Body>
@@ -23,7 +29,7 @@ function Indicador({ nombre, descripcion, imagen, titulo = '' }) {
         </CardView.Body>
       </CardView>
       <CardView.Footer nombre={nombre} titulo={titulo} >{titulo}</CardView.Footer>
-    </DivCard>
+    </Box>
   )
 }
 

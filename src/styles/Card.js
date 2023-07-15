@@ -164,9 +164,3 @@ CardView.Footer = styled(Card.Footer)`
   text-transform: uppercase;
   margin-top: 5%;
 `
-export const DivCard = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`
