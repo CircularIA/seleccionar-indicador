@@ -18,7 +18,7 @@
   height: 100vh;
   overflow: scroll;
   justify-content: space-between;
-  padding: 4% 2% 0% 2%;
+  padding: 2% 2% 0% 4%;
 }
 /* Media Queries */
 @media only screen and (max-width: 992px) {

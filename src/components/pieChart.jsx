@@ -17,27 +17,15 @@ const data = [
     {
       "id": "rust",
       "label": "rust",
-      "value": 118,
+      "value": 218,
       "color": "hsl(239, 70%, 50%)"
-    },
-    {
-      "id": "javascript",
-      "label": "javascript",
-      "value": 87,
-      "color": "hsl(296, 70%, 50%)"
-    },
-    {
-      "id": "make",
-      "label": "make",
-      "value": 40,
-      "color": "hsl(40, 70%, 50%)"
     }
   ]
 
   const MyResponsivePie = ({ data /* see data tab */ }) => (
     <ResponsivePie
         data={data}
-        margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
+        margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
         innerRadius={0.5}
         padAngle={0.7}
         cornerRadius={3}
@@ -137,31 +125,7 @@ const data = [
                 id: 'lines'
             }
         ]}
-        legends={[
-            {
-                anchor: 'bottom',
-                direction: 'row',
-                justify: false,
-                translateX: 0,
-                translateY: 56,
-                itemsSpacing: 0,
-                itemWidth: 100,
-                itemHeight: 18,
-                itemTextColor: '#999',
-                itemDirection: 'left-to-right',
-                itemOpacity: 1,
-                symbolSize: 18,
-                symbolShape: 'circle',
-                effects: [
-                    {
-                        on: 'hover',
-                        style: {
-                            itemTextColor: '#000'
-                        }
-                    }
-                ]
-            }
-        ]}
+        legends={[]}
     />
 )
 function PieChart() {

@@ -1,12 +1,11 @@
 //Bibliotecas
-import { useContext } from 'react'
+import { useState, useContext } from 'react'
 //Componentes
 import Indicador from '../../components/indicador'
 import Search from '../../components/search';
 import Seleccionado from '../../components/seleccionado';
 import IndicadorValor from '../../components/indicadorValor';
 //Styles
-import { Content, H2, IndicadoresFlex, SearchBox, IndicadoresBox } from '../../styles/Content.js'
 import { Box, IconButton, Typography, useTheme } from '@mui/material';
 import { ColorModeContext, tokens } from "../../theme";
 import Grid from '@mui/material/Grid';
@@ -24,46 +23,87 @@ import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
-
+//Graphics
 import BarChart from '../../components/barChart';
 import PieChart from '../../components/pieChart';
+import PieGreen from '../../assets/Oval.svg'
+import PieRed from '../../assets/OvalRed.svg'
+import PieYellow from '../../assets/OvalYellow.svg';
+//Input and Select components
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 function Main() {
+    //Hystory
+    const [hystory, setHystory] = useState('');
     //Styles
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
     //Context
     const { currentView } = useContext(Context);
 
+    const handleHystory = (e) => {
+        setHystory(e.target.value);
+    }
+
     if (currentView == 0) {
-        return <Content>
-            <Typography variant="h2" component="h2">
-                ¿QUE TIPO DE INDICADOR QUIERES CONOCER?
-            </Typography>
-            <IndicadoresFlex>
-                {datos.map((indicador, index) => {
-                    return <Indicador key={index} descripcion={indicador.descripcion}
-                        imagen={indicador.imagen}
-                        titulo={indicador.titulo} >
-                    </Indicador>
-                })}
-            </IndicadoresFlex>
-        </Content>
+        return( 
+            <Box
+                sx={{
+                    padding: '6% 0% 0% 0%',
+                    maxWidth: '100%',
+                }}
+            >
+                <Typography variant="h2" component="h2">
+                    ¿QUE TIPO DE INDICADOR QUIERES CONOCER?
+                </Typography>
+                <IndicadoresFlex>
+                    {datos.map((indicador, index) => {
+                        return <Indicador key={index} descripcion={indicador.descripcion}
+                            imagen={indicador.imagen}
+                            titulo={indicador.titulo} >
+                        </Indicador>
+                    })}
+                </IndicadoresFlex>
+            </Box>)
     } else if (currentView == 1) {
         return (
-            <Content second="true">
-                <SearchBox>
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'flex-start',
+                    alignItems: 'flex-start',
+                    alignContent: 'flex-start',
+                }}
+            >
+                <Box
+                    sx={{
+                        alignSelf: 'flex-end',
+                    }}
+                >
                     <Search></Search>
-                </SearchBox>
-                <IndicadoresBox>
+                </Box>
+
+                <Box>
                     <Seleccionado></Seleccionado>
-                </IndicadoresBox>
-                <IndicadoresFlex>
+                </Box>
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        flexWrap: 'wrap',
+                        alignContent: 'flex-start',
+                        gap: '2%',
+                    }}
+                >
                     {tiposAmbiental.map((indicador, index) => {
                         return <Indicador key={index} nombre={indicador.nombre} descripcion={indicador.descripcion} imagen={indicador.imagen} ></Indicador>
                     })}
-                </IndicadoresFlex>
-            </Content>
+                </Box>
+            </Box>
         )
     } else if (currentView == 2) {
         return (
@@ -121,7 +161,7 @@ function Main() {
                             form='ax+by+c'
                         >
                         </CardPorcent>
-                        
+
                     </Grid>
                     <Grid item xs={6}>
                         {/* Graficos */}
@@ -142,16 +182,44 @@ function Main() {
                                 />
                                 <CardContent>
                                     <Box
+                                        sx={{
+                                            width: '60%',
+                                            margin: 'auto',
+                                            marginY: '0%',
+                                        }}
+                                    >
+                                        <FormControl fullWidth>
+                                            <InputLabel id="demo-simple-select-label">Enero 2023</InputLabel>
+                                            <Select
+                                                labelId="demo-simple-select-label"
+                                                id="demo-simple-select"
+                                                value={hystory}
+                                                label="Historia"
+                                                onChange={handleHystory}
+                                            >
+                                                <MenuItem value={10}>Ten</MenuItem>
+                                                <MenuItem value={20}>Twenty</MenuItem>
+                                                <MenuItem value={30}>Thirty</MenuItem>
+                                            </Select>
+                                        </FormControl>
+
+                                    </Box>
+                                    <Box
                                         height='300px'
                                         width='90%'
                                     >
                                         <BarChart></BarChart>
                                     </Box>
                                     <Box
-                                        height='200px'
+                                        height='150px'
                                         display='flex'
                                         flexDirection='row'
+                                        width='90%'
+                                        marginTop='1px'
                                     >
+                                        {/* <img src={PieGreen} alt='PieGreen' />
+                                        <img src={PieRed} alt='PieRed' />
+                                        <img src={PieYellow} alt='PieYellow' /> */}
                                         <PieChart></PieChart>
                                         <PieChart></PieChart>
                                         <PieChart></PieChart>

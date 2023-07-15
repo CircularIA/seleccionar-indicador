@@ -113,7 +113,12 @@ function CardPorcent({ source, type, metric, dats, form }) {
                                         <TableCell component="th" scope="row">
                                             {row.name}
                                         </TableCell>
-                                        <TableCell align="right">{row.toneladas}</TableCell>
+                                        <TableCell 
+                                            align="right"
+                                            backgroundColor={colors.primary[500]}
+                                        >
+                                            {row.toneladas}
+                                        </TableCell>
                                     </TableRow>
                                 ))}
                             </TableBody>
@@ -127,10 +132,10 @@ function CardPorcent({ source, type, metric, dats, form }) {
                     sx={{
                         borderRadius: '10px',
                         background: colors.primary[500],
+                        paddingY: '1%',
                         boxShadow: '4px 4px 10px 0px rgba(0, 0, 0, 0.25)',
                         width: '100%',
-                        marginTop: '5%',
-                        paddingY: '1%',
+                        marginTop: '7%',
                     }}
                 >
                     <Typography

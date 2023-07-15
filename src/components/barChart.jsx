@@ -138,7 +138,9 @@ const MyResponsiveBar = ({ data /* see data tab */ }) => (
 function BarChart() {
     
     return (
-        <MyResponsiveBar data={data}></MyResponsiveBar>
+        <>
+            <MyResponsiveBar data={data}></MyResponsiveBar>
+        </>
     )
 }
 
