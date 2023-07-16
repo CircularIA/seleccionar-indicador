@@ -8,7 +8,7 @@ import NavBar from './pages/global/navbar'
 import Footer from './pages/global/footer'
 import { Datos } from './context/context';
 //MUI
-import { CssBaseline, ThemeProvider } from "@mui/material";
+import { CssBaseline, Grid, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 function App() {
   const [theme, colorMode] = useMode();
@@ -19,10 +19,28 @@ function App() {
         <Datos>
           <div className='app'>
             <NavBar></NavBar>
-            <div className="content">
+            <Grid
+              container
+              padding='2% 2% 0% 4%'
+              spacing={2}
+              sx = {{
+                background: '#F2F2F2',
+                minHeight: '100vh',
+              }}
+            >
+              <Grid 
+                item xs={12} 
+              >
+                <Main></Main>
+              </Grid>
+              <Grid item xs={12}>
+                <Footer></Footer>
+              </Grid>
+            </Grid>
+            {/* <div className="content">
               <Main></Main>
               <Footer></Footer>
-            </div>
+            </div> */}
           </div>
         </Datos>
       </ThemeProvider>

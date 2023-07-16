@@ -46,104 +46,104 @@ function Main() {
     }
 
     if (currentView == 0) {
-        return( 
-            <Box
-                height='85%'
+        return (
+            <Grid
+                container
+                paddingTop='6%'
+                spacing={4}
             >
                 <Grid
-                    container 
-                    direction="column"
-                    paddingTop='6%'
-                    flexGrow='1'
+                    item
+                    xs={12}
+                    sm={12}
+                    md={12}
+                    lg={12}
+                >
+                    <Typography variant="h2" component="h2">
+                        ¿QUE TIPO DE INDICADOR QUIERES CONOCER?
+                    </Typography>
+                </Grid>
+                <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={12}
+                    lg={12}
                 >
                     <Grid
-                        item
-                        xs={12}
-                        sm={12}
-                        md={6}
+                        container
+                        direction='row'
+                        justifyContent='flex-start'
+                        spacing={4}
                     >
-                        <Typography variant="h2" component="h2">
-                            ¿QUE TIPO DE INDICADOR QUIERES CONOCER?
-                        </Typography>
-                    </Grid>
-                    <Grid
-                        item
-                        xs={12}
-                        sm={12}
-                        md={6}
-                    >
-                        <Grid
-                            container
-                            direction='row'
-                            justifyContent='flex-start'
-                            alignItems='center'
-                            paddingTop='2%'
-                            gap='2%'
-                        >
-                            {datos.map((indicador, index) => {
-                                return <Grid item key={index}>
-                                    <Indicador  descripcion={indicador.descripcion}
+                        {datos.map((indicador, index) => {
+                            return <Grid
+                                item
+                                xs={12}
+                                sm={6}
+                                md={4}
+                                lg={4}
+                                key={index}>
+                                <Indicador descripcion={indicador.descripcion}
                                     imagen={indicador.imagen}
                                     titulo={indicador.titulo} >
-                                    </Indicador>
-                                </Grid>
-                            })}
-                        </Grid>
-                        {/* <Box
-                            sx={{
-                                display: 'flex',
-                                flexDirection: 'row',
-                                flexWrap: 'wrap',
-                                alignContent: 'flex-start',
-                                gap: '2%',
-                                marginTop: '2%',
-                            }}
-                        >
-                        </Box> */}
-
+                                </Indicador>
+                            </Grid>
+                        })}
                     </Grid>
                 </Grid>
-            </Box>)
+            </Grid>
+        )
     } else if (currentView == 1) {
         return (
-            <Box
-                sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'flex-start',
-                    alignItems: 'flex-start',
-                    alignContent: 'flex-start',
-                    overflow: 'scroll'
-                }}
+            <Grid
+                container
+                spacing={1}
             >
-                <Box
-                    sx={{
-                        alignSelf: 'flex-end',
-                    }}
+                <Grid 
+                    item
+                    xs={12}
                 >
-                    <Search></Search>
-                </Box>
-                <Box
-                    sx = {{
-                        width: '100%',
-                    }}
+                    <Box
+                        display='flex'
+                        alignContent='center'
+                        justifyContent='flex-end'
+                    >
+                        <Search></Search>
+                    </Box>
+                </Grid>
+                <Grid
+                    item
+                    xs={12}
+                    
                 >
                     <Seleccionado></Seleccionado>
-                </Box>
-                <Box
-                    sx={{
-                        display: 'flex',
-                        flexDirection: 'row',
-                        flexWrap: 'wrap',
-                        alignContent: 'flex-start',
-                        gap: '2%',
-                    }}
+                </Grid>
+                <Grid
+                    item
+                    xs={12}
                 >
-                    {tiposAmbiental.map((indicador, index) => {
-                        return <Indicador key={index} nombre={indicador.nombre} descripcion={indicador.descripcion} imagen={indicador.imagen} ></Indicador>
+                    <Grid 
+                        container
+                        direction='row'
+                        justifyContent='flex-start'
+                        spacing={4}
+                    >
+                        {tiposAmbiental.map((indicador, index) => {
+                        return <Grid 
+                                item
+                                xs={12}
+                                sm={6}
+                                md={4}
+                                lg={4}
+                                key={index}
+                                >
+                                <Indicador  nombre={indicador.nombre} descripcion={indicador.descripcion} imagen={indicador.imagen} ></Indicador>
+                            </Grid>
                     })}
-                </Box>
-            </Box>
+                    </Grid>
+                </Grid>
+            </Grid>
         )
     } else if (currentView == 2) {
         return (
@@ -155,7 +155,7 @@ function Main() {
                     alignItems: 'flex-start',
                     alignContent: 'flex-start',
                 }}
-            >   
+            >
                 <Box
                     sx={{
                         alignSelf: 'flex-end',
@@ -164,7 +164,7 @@ function Main() {
                     <Search></Search>
                 </Box>
                 <Box
-                    sx = {{
+                    sx={{
                         width: '100%',
                     }}
                 >
