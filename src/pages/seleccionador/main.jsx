@@ -6,9 +6,9 @@ import Search from '../../components/search';
 import Seleccionado from '../../components/seleccionado';
 import IndicadorValor from '../../components/indicadorValor';
 //Styles
+import Grid from '@mui/material/Grid';
 import { Box, IconButton, Typography, useTheme } from '@mui/material';
 import { ColorModeContext, tokens } from "../../theme";
-import Grid from '@mui/material/Grid';
 import Divider from '@mui/material/Divider';
 import Button from '@mui/material/Button';
 //Recursos
@@ -48,31 +48,61 @@ function Main() {
     if (currentView == 0) {
         return( 
             <Box
-                sx={{
-                    padding: '6% 0% 0% 0%',
-                    maxWidth: '100%',
-                }}
+                height='85%'
             >
-                <Typography variant="h2" component="h2">
-                    ¿QUE TIPO DE INDICADOR QUIERES CONOCER?
-                </Typography>
-                <Box
-                    sx={{
-                        display: 'flex',
-                        flexDirection: 'row',
-                        flexWrap: 'wrap',
-                        alignContent: 'flex-start',
-                        gap: '2%',
-                        marginTop: '2%',
-                    }}
+                <Grid
+                    container 
+                    direction="column"
+                    paddingTop='6%'
+                    flexGrow='1'
                 >
-                    {datos.map((indicador, index) => {
-                        return <Indicador key={index} descripcion={indicador.descripcion}
-                            imagen={indicador.imagen}
-                            titulo={indicador.titulo} >
-                        </Indicador>
-                    })}
-                </Box>
+                    <Grid
+                        item
+                        xs={12}
+                        sm={12}
+                        md={6}
+                    >
+                        <Typography variant="h2" component="h2">
+                            ¿QUE TIPO DE INDICADOR QUIERES CONOCER?
+                        </Typography>
+                    </Grid>
+                    <Grid
+                        item
+                        xs={12}
+                        sm={12}
+                        md={6}
+                    >
+                        <Grid
+                            container
+                            direction='row'
+                            justifyContent='flex-start'
+                            alignItems='center'
+                            paddingTop='2%'
+                            gap='2%'
+                        >
+                            {datos.map((indicador, index) => {
+                                return <Grid item key={index}>
+                                    <Indicador  descripcion={indicador.descripcion}
+                                    imagen={indicador.imagen}
+                                    titulo={indicador.titulo} >
+                                    </Indicador>
+                                </Grid>
+                            })}
+                        </Grid>
+                        {/* <Box
+                            sx={{
+                                display: 'flex',
+                                flexDirection: 'row',
+                                flexWrap: 'wrap',
+                                alignContent: 'flex-start',
+                                gap: '2%',
+                                marginTop: '2%',
+                            }}
+                        >
+                        </Box> */}
+
+                    </Grid>
+                </Grid>
             </Box>)
     } else if (currentView == 1) {
         return (
@@ -83,6 +113,7 @@ function Main() {
                     justifyContent: 'flex-start',
                     alignItems: 'flex-start',
                     alignContent: 'flex-start',
+                    overflow: 'scroll'
                 }}
             >
                 <Box
@@ -92,8 +123,11 @@ function Main() {
                 >
                     <Search></Search>
                 </Box>
-
-                <Box>
+                <Box
+                    sx = {{
+                        width: '100%',
+                    }}
+                >
                     <Seleccionado></Seleccionado>
                 </Box>
                 <Box
@@ -129,7 +163,11 @@ function Main() {
                 >
                     <Search></Search>
                 </Box>
-                <Box>
+                <Box
+                    sx = {{
+                        width: '100%',
+                    }}
+                >
                     <Filters tiposAmbiental={tiposAmbiental} tiposEconomico={tiposEconomico} tiposSocial={tiposSocial} ></Filters>
                 </Box>
                 <Box
@@ -138,7 +176,7 @@ function Main() {
                         flexDirection: 'row',
                         flexWrap: 'wrap',
                         alignContent: 'flex-start',
-                        gap: '2%',
+                        gap: '3%',
                     }}
                 >
                     <IndicadorValor datos={datosGeneral[0]} />

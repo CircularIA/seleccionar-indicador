@@ -163,13 +163,13 @@ export const tiposEconomico = [
         descripcion: 'Indicadores relacionados con el nivel de circularidad de los flujos de entrada y salida'
     },
     {
-        nombre: 'Ahorro',
-        imagen: ImagenAgua,
+        nombre: 'Inversion Circ.',
+        imagen: ImagenEmisiones,
         descripcion: 'Indicadores relacionados con el nivel de circularidad de los flujos de entrada y salida'
     },
     {
-        nombre: 'Inversion Circ.',
-        imagen: ImagenEmisiones,
+        nombre: 'Ahorro',
+        imagen: ImagenAgua,
         descripcion: 'Indicadores relacionados con el nivel de circularidad de los flujos de entrada y salida'
     }
 ]

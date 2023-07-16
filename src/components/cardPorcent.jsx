@@ -135,7 +135,7 @@ function CardPorcent({ source, type, metric, dats, form }) {
                         paddingY: '1%',
                         boxShadow: '4px 4px 10px 0px rgba(0, 0, 0, 0.25)',
                         width: '100%',
-                        marginTop: '7%',
+                        marginTop: '7.5%',
                     }}
                 >
                     <Typography

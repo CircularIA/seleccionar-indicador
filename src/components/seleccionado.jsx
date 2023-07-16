@@ -1,4 +1,4 @@
-import {useRef, useContext, useEffect} from 'react'
+import {useRef, useContext, useEffect, useState} from 'react'
 
 import './../css/seleccionado.css'
 import {H4, HR} from "../styles/Seleccionado";
@@ -17,6 +17,7 @@ function Seleccionado() {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
 
+    const [color, setColor] = useState(colors.primary[500]);
     const removeActive = () =>{
         refBotones.current.childNodes.forEach((e)=>{
             e.classList.remove('active')
@@ -28,6 +29,15 @@ function Seleccionado() {
             setCurrentIndicator(e.target.innerText);
             removeActive();
             e.target.classList.add('active');
+            if (e.target.className.includes('economico')) {
+                setColor(colors.economico[500]);
+            }
+            else if (e.target.className.includes('social')) {
+                setColor(colors.social[500]);
+            }
+            else{
+                setColor(colors.primary[500]);
+            }
             // refLinea.current.className = 'linea-'+e.target.innerText.toLowerCase();
         }
     }
@@ -46,6 +56,7 @@ function Seleccionado() {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'start',
+                width: '100%',
             }}
         >
             
@@ -53,15 +64,26 @@ function Seleccionado() {
             <Divider 
                 sx={{
                     width: '100%',
-                    backgroundColor: colors.primary[500],  
+                    boxShadow: '0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
+                    borderRadius: '20px 20px 0px 0px',
+                    border: '1px solid '+color,
+                    background: color,
                 }}
             />
-            
-            <div className="botones" ref={refBotones} >
+            <Box
+                ref={refBotones}
+                sx = {{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    marginY: '1%',
+                    width: '100%',
+                    gap: '1%',
+                }}
+                >
                 <button className="boton ambiental" onClick={changeSeleccionado}>AMBIENTAL</button>
                 <button className="boton economico" onClick={changeSeleccionado}>ECONÓMICO</button>
                 <button className="boton social" onClick={changeSeleccionado}>SOCIAL</button>
-            </div>
+            </Box>
         </Box>
     )
 }

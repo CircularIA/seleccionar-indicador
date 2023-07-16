@@ -1,10 +1,6 @@
 import {styled, css} from 'styled-components'
 
-export const Seleccionado = styled.div `
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-`
+
 export const H4 = styled.h4`
     margin: 0% 0% 0% 0%;
     color: #000;
@@ -25,11 +21,6 @@ export const HR = styled.hr`
     width: 270px;
     height: 3px;
 `
-export const Botones = styled.div `
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-`
 const Boton = styled.button`
     /* margin: 1%; */
     padding: 2% 5% 2% 5%;
@@ -43,6 +34,7 @@ const Boton = styled.button`
     border-radius: 0.9rem;
     font-size: medium;
     margin-right: 1%;
+    margin-bottom: 2px;
     /* row-gap: 2em; */
 `
 export const BotonCalcular = styled(Boton)`

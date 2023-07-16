@@ -35,6 +35,7 @@ export const CardView = styled(Card)`
     ${props => props.nombre &&
     css`
       height: 280px;
+      width: minmax(370px, 100%);
       justify-content: flex-start;
       padding-top: 7%;
     `}

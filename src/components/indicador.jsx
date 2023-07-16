@@ -19,6 +19,8 @@ function Indicador({ nombre, descripcion, imagen, titulo = '' }) {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
+        flexGrow: 1
+        
       }}
     >
       <CardView onClick={nextView} nombre={nombre} currentindicator={currentIndicator}>
