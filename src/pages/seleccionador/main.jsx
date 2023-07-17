@@ -40,7 +40,7 @@ function Main() {
     const colors = tokens(theme.palette.mode);
     //Context
     const { currentView } = useContext(Context);
-
+    
     const handleHystory = (e) => {
         setHystory(e.target.value);
     }

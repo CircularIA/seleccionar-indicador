@@ -17,19 +17,20 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
     height: 10,
-    borderRadius: 5,
     [`&.${linearProgressClasses.colorPrimary}`]: {
         backgroundColor: '#989898',
+        borderRadius: 10,
     },
     [`& .${linearProgressClasses.bar}`]: {
-        backgroundColor: "#00b971",
+        background: "linear-gradient( 90deg, rgba(0, 185, 113, 1),rgba(6, 217, 112, 1), rgba(13, 255, 110, 1))",
+        borderRadius: 10,
     },
   }));
+
 
 function IndicadorValor({ datos, calc }) {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
-
     //True es que fue calculado
     const color = calc ? 'linear-gradient( 90deg, rgba(0, 138, 85, 1), rgba(13, 255, 110, 1))' : '#989898';
     const {setCurrentView} = useContext(Context);
@@ -79,7 +80,8 @@ function IndicadorValor({ datos, calc }) {
                     flexDirection: 'column',
                     alignContent: 'center',
                     justifyContent: 'space-around',
-                    height: '70%'
+                    height: '70%',
+                    padding: '3% 5% 5% 5%',
                 }}
             >
                 <Typography variant='h5'>
@@ -89,6 +91,11 @@ function IndicadorValor({ datos, calc }) {
                     sx={{ 
                         width: '100%',
                         marginTop: '5%',
+                        height: '100%',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        aligContent: 'center',
+                        justifyContent: 'flex-end',
                     }}
                 >
                     {/* <LinearProgress variant="determinate" value={50} 
@@ -104,7 +111,39 @@ function IndicadorValor({ datos, calc }) {
                                 justifyContent: 'center'
                             }}
                         >
-                            <CircularProgress value={25} />
+                            {/* <PieChart
+                                series = {[
+                                    {
+                                        arcLabel: (item) => `${item.label}: ${item.value}`,
+                                        arcLabelMinAngle: 45,
+                                        data,
+                                    },
+                                ]}
+                                sx = {{
+                                    [`& .${pieArcLabelClasses.root}`]: {
+                                        fill:colors.primary[500],
+                                        fontWeight: 'bold',
+                                    },
+                                }}
+                                {...size}
+                            >
+
+                            </PieChart> */}
+                            <CircularProgress variant="determinate" value={25}
+                            size={65}
+                            sx = {{
+                                background: colors.primary[200],
+                                borderRadius: '50%',
+                            }}
+                            />
+                            <Typography
+                                variant='h5'
+                                position='absolute'
+                                color= {colors.primary[500]}
+                                fontWeight='bold'
+                            >
+                                25%
+                            </Typography>
                         </Box> 
                     :
                         <BorderLinearProgress 

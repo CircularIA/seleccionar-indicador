@@ -7,13 +7,24 @@ import {Box} from "@mui/material";
 import Divider from '@mui/material/Divider';
 import { useTheme } from '@mui/material/styles';
 import { ColorModeContext, tokens } from "../theme";
+import { useEffect, useRef,useContext } from 'react';
+import { Context } from '../context/context';
 
-function Filters({tiposAmbiental, tiposEconomico, tiposSocial}) {
+function Filters({tiposAmbiental, tiposEconomico, tiposSocial, tipo}) {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
 
-    const setActiveStateCalcular = (e) => {
-        console.log(e.target);
+    const {currentIndicator} = useContext(Context);
+
+    const refBotones = useRef();
+    useEffect(() => {
+        refBotones.current.childNodes.forEach((e)=>{
+            if (e.innerText.toLowerCase() === currentIndicator.toLowerCase()) {
+                e.classList.add('active');
+            }
+        })
+    }, [])
+    const setActiveState = (e) => {
         e.target.classList.toggle('active');
     }
     return (
@@ -42,6 +53,7 @@ function Filters({tiposAmbiental, tiposEconomico, tiposSocial}) {
                 }}
             />
             <Box
+                ref={refBotones}
                 sx = {{
                     display: 'flex',
                     flexDirection: 'row',
@@ -52,23 +64,33 @@ function Filters({tiposAmbiental, tiposEconomico, tiposSocial}) {
                 }}            
             >
                 <BotonCalcular
-                    onClick = {setActiveStateCalcular}
+                    className="active"
+                    onClick = {setActiveState}
                 >
                     <img src={ImagenCalcular} alt=""/>
                     Calculado
                 </BotonCalcular>
-                <BotonCalcular>
+                <BotonCalcular
+                    className="active"
+                    onClick = {setActiveState}
+                >
                     <img src={ImagenNoCalcular} alt=""/>
                     No Calculado 
                 </BotonCalcular>
                 {tiposAmbiental.map((indicador, index) =>{
-                    return <BotonAmbiental key={index} className="boton ambiental">{indicador.nombre}</BotonAmbiental>
+                    return <BotonAmbiental key={index} 
+                    onClick = {setActiveState}
+                    className="boton ambiental">{indicador.nombre}</BotonAmbiental>
                 } )}
                 {tiposEconomico.map((indicador, index) => {
-                    return <BotonEconomico key={index} className="boton economico">{indicador.nombre}</BotonEconomico>
+                    return <BotonEconomico key={index} 
+                    onClick = {setActiveState}
+                    className="boton economico">{indicador.nombre}</BotonEconomico>
                 })}
                 {tiposSocial.map((indicador, index) => {
-                    return <BotonSocial key={index} className="boton social">{indicador.nombre}</BotonSocial>
+                    return <BotonSocial key={index} 
+                    onClick = {setActiveState}
+                    className="boton social">{indicador.nombre}</BotonSocial>
                 })}
             </Box>
         </Box>

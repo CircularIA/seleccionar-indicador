@@ -60,11 +60,19 @@ export const BotonCalcular = styled(Boton)`
         background: #4AD256;
         color: white;
     }
+    &.active{
+        background: #4AD256;
+        color: white;
+    }
 ` 
 export const BotonAmbiental = styled(BotonCalcular)`
     border: 2px solid #00B971;
     &:hover{
         background: #00B971;
+    }
+    &.active{
+        background: #00B971;
+        color: white;
     }
 `
 export const BotonEconomico = styled(BotonCalcular)`
@@ -72,10 +80,18 @@ export const BotonEconomico = styled(BotonCalcular)`
     &:hover{
         background: #F3A430;
     }
+    &.active{
+        background: #F3A430;
+        color: white;
+    }
 `
 export const BotonSocial = styled(BotonCalcular)`
     border: 2px solid #2D7DD2;
     &:hover{
         background: #2D7DD2;
+    }
+    &.active{
+        background: #2D7DD2;
+        color: white;
     }
 `
