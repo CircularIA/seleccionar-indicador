@@ -6,7 +6,6 @@ import { Search as SearchIcon} from 'react-bootstrap-icons';
 import './../css/search.css'
 
 function Search() {
-
     return (
         <InputGroup className="mb-3 search">
             <Form.Control

@@ -20,10 +20,9 @@ const animacionText = (inicial, distancia) => keyframes`
 export const CardView = styled(Card)`
     /* Sizes */
     font-size: 0.9em;
-    max-height: max-content;
-    max-width: 100%;
-    width: 370px;
-    height: 370px;
+    max-width: 370px;
+    width: 100%;
+    height: 420px;
     //Si tiene el nombre es porque es de segunda vista
     /* Position */
     padding: 0% 1% 1% 0%;
@@ -35,17 +34,14 @@ export const CardView = styled(Card)`
     ${props => props.nombre &&
     css`
       height: 280px;
-      width: minmax(370px, 100%);
       justify-content: flex-start;
       padding-top: 7%;
     `}
     /* Design */
     border-radius: 8px;
     border: 1px solid #989898;
-    overflow: hidden;
     border-radius: 8px;
     box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.25);
-    overflow: hidden;
     //Animaciones e interaccion
     cursor: pointer;
     transition: border-color 0.25s;

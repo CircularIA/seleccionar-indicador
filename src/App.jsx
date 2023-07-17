@@ -21,7 +21,7 @@ function App() {
             <NavBar></NavBar>
             <Grid
               container
-              padding='2% 2% 0% 4%'
+              padding='1% 2% 0% 4%'
               spacing={2}
               sx = {{
                 background: '#F2F2F2',
@@ -33,7 +33,10 @@ function App() {
               >
                 <Main></Main>
               </Grid>
-              <Grid item xs={12}>
+              <Grid 
+                item
+                xs={12}
+              >
                 <Footer></Footer>
               </Grid>
             </Grid>

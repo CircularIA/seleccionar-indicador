@@ -12,6 +12,7 @@ function Indicador({ nombre, descripcion, imagen, titulo = '' }) {
     )
     titulo ? setCurrentIndicator(titulo.toUpperCase()) : setCurrentIndicator(nombre.toUpperCase());
   }
+  const currentHeight = nombre ? '100%' : '420px';
   return (
     <Box
       sx={{
@@ -19,8 +20,10 @@ function Indicador({ nombre, descripcion, imagen, titulo = '' }) {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        flexGrow: 1
-        
+        maxWidth: '370px',
+        maxHeight: '420px',
+        width: '100%',
+        height: currentHeight,
       }}
     >
       <CardView onClick={nextView} nombre={nombre} currentindicator={currentIndicator}>

@@ -50,7 +50,8 @@ function Main() {
             <Grid
                 container
                 paddingTop='6%'
-                spacing={4}
+                spacing={1}
+                height='100%'
             >
                 <Grid
                     item
@@ -74,7 +75,8 @@ function Main() {
                         container
                         direction='row'
                         justifyContent='flex-start'
-                        spacing={4}
+                        spacing={1}
+                        height='100%'
                     >
                         {datos.map((indicador, index) => {
                             return <Grid
@@ -98,9 +100,9 @@ function Main() {
         return (
             <Grid
                 container
-                spacing={1}
+                spacing={0}
             >
-                <Grid 
+                <Grid
                     item
                     xs={12}
                 >
@@ -115,7 +117,6 @@ function Main() {
                 <Grid
                     item
                     xs={12}
-                    
                 >
                     <Seleccionado></Seleccionado>
                 </Grid>
@@ -123,68 +124,102 @@ function Main() {
                     item
                     xs={12}
                 >
-                    <Grid 
+                    <Grid
                         container
                         direction='row'
                         justifyContent='flex-start'
-                        spacing={4}
+                        rowSpacing={{
+                            xs: 1,
+                            sm: 2,
+                            md: 0,
+                            lg: 0,
+                        }}
+                        columnSpacing={{
+                            xs: 4,
+                            sm: 4,
+                            md: 9,
+                            lg: 10,
+                            xl: 22,
+                        }}
                     >
                         {tiposAmbiental.map((indicador, index) => {
-                        return <Grid 
+                            return <Grid
                                 item
                                 xs={12}
                                 sm={6}
                                 md={4}
                                 lg={4}
                                 key={index}
-                                >
-                                <Indicador  nombre={indicador.nombre} descripcion={indicador.descripcion} imagen={indicador.imagen} ></Indicador>
+                            >
+                                <Indicador nombre={indicador.nombre} descripcion={indicador.descripcion} imagen={indicador.imagen} ></Indicador>
                             </Grid>
-                    })}
+                        })}
                     </Grid>
                 </Grid>
             </Grid>
         )
     } else if (currentView == 2) {
         return (
-            <Box
-                sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'flex-start',
-                    alignItems: 'flex-start',
-                    alignContent: 'flex-start',
-                }}
+            <Grid
+                container
+                rowSpacing={1}
             >
-                <Box
-                    sx={{
-                        alignSelf: 'flex-end',
-                    }}
+                <Grid
+                    item
+                    xs={12}
                 >
-                    <Search></Search>
-                </Box>
-                <Box
-                    sx={{
-                        width: '100%',
-                    }}
+                    <Box
+                        display='flex'
+                        alignContent='center'
+                        justifyContent='flex-end'
+                     >
+                        <Search></Search>
+                    </Box>   
+                </Grid>
+                <Grid
+                    item
+                    xs={12}
                 >
                     <Filters tiposAmbiental={tiposAmbiental} tiposEconomico={tiposEconomico} tiposSocial={tiposSocial} ></Filters>
-                </Box>
-                <Box
-                    sx={{
-                        display: 'flex',
-                        flexDirection: 'row',
-                        flexWrap: 'wrap',
-                        alignContent: 'flex-start',
-                        gap: '3%',
-                    }}
+                </Grid>
+                <Grid
+                    item
+                    xs={12}
                 >
-                    <IndicadorValor datos={datosGeneral[0]} />
-                    <IndicadorValor datos={datosGeneral[1]} />
-                    <IndicadorValor datos={datosGeneral[2]} />
-                    <IndicadorValor datos={datosGeneral[3]} calc="true" />
-                </Box>
-            </Box>
+                    <Grid
+                        container
+                        direction='row'
+                        justifyContent='flex-start'
+                        rowSpacing={{
+                            xs: 1,
+                            sm: 2,
+                            md: 2,
+                            lg: 2,
+                            xl: 2,
+                        }}    
+                        columnSpacing={{
+                            xs: 4,
+                            sm: 4,
+                            md: 9,
+                            lg: 10,
+                            xl: 15,
+                        }}
+                    >   
+                        <Grid item xs={12} sm={6} md={6} lg={6}>
+                            <IndicadorValor datos={datosGeneral[0]} />
+                        </Grid>
+                        <Grid item xs={12} sm={6} md={6} lg={6}>
+                            <IndicadorValor datos={datosGeneral[1]} />
+                        </Grid>
+                        <Grid item xs={12} sm={6} md={6} lg={6}>
+                            <IndicadorValor datos={datosGeneral[2]} />
+                        </Grid>
+                        <Grid item xs={12} sm={6} md={6} lg={6}>
+                            <IndicadorValor datos={datosGeneral[3]} calc='true' />
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
         )
     }
     else if (currentView == 3) {

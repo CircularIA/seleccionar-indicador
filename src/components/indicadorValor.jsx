@@ -43,13 +43,12 @@ function IndicadorValor({ datos, calc }) {
         <Card
             onClick={nextView}
             sx = {{
-                width: '720px',
+                width: '100%',
+                maxWidth: '670px',
                 height: '250px',
-                maxHeight: '300px',
                 borderRadius: '10px',
                 border: '1px solid #989898',
                 background: '#FFF',
-                flexGrowth: '1',
                 boxShadow: '4px 4px 10px 0px rgba(0, 0, 0, 0.25)',
             }}
         >
@@ -57,7 +56,7 @@ function IndicadorValor({ datos, calc }) {
                 title={datos.nombre}
                 titleTypographyProps={{
                     style: {
-                        fontSize: '26px',
+                        fontSize: '25px',
                         fontStyle: 'normal',
                         fontWeight: '700',
                         lineHeight: 'normal'

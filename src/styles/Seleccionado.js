@@ -2,7 +2,7 @@ import {styled, css} from 'styled-components'
 
 
 export const H4 = styled.h4`
-    margin: 0% 0% 0% 0%;
+    margin: 0% 60% 0% 0%;
     color: #000;
     text-align: start;
     font-size: 24px;
@@ -53,6 +53,10 @@ export const BotonCalcular = styled(Boton)`
     cursor: pointer;
     align-items: center;
     &:hover{
+        background: #4AD256;
+        color: white;
+    }
+    &:active{
         background: #4AD256;
         color: white;
     }

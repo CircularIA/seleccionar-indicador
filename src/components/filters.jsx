@@ -11,6 +11,11 @@ import { ColorModeContext, tokens } from "../theme";
 function Filters({tiposAmbiental, tiposEconomico, tiposSocial}) {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
+
+    const setActiveStateCalcular = (e) => {
+        console.log(e.target);
+        e.target.classList.toggle('active');
+    }
     return (
         <Box
             sx = {{
@@ -25,6 +30,7 @@ function Filters({tiposAmbiental, tiposEconomico, tiposSocial}) {
                 flexDirection="row"
             >
                 <H4>INDICADORES</H4>
+                <H4>TIPO</H4>
             </Box>
             <Divider 
                 sx={{
@@ -45,7 +51,9 @@ function Filters({tiposAmbiental, tiposEconomico, tiposSocial}) {
                     width: '100%',
                 }}            
             >
-                <BotonCalcular>
+                <BotonCalcular
+                    onClick = {setActiveStateCalcular}
+                >
                     <img src={ImagenCalcular} alt=""/>
                     Calculado
                 </BotonCalcular>

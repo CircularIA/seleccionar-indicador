@@ -36,7 +36,6 @@ function Footer() {
         <Box
             sx={{
                 width: '100%',
-                marginTop: '1%' ,
             }}
         >
             <Stepper activeStep={currentView} alternativeLabel>

@@ -2,11 +2,12 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    height: 50px;
 }
 .inputText{
     border-radius: 40px;
     width: 311.654px;
-    height: 56.923px;
+    height: 100%;
     margin-right: 2%;
     border: none;
     padding: 3%;
