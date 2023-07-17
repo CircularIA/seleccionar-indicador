@@ -82,7 +82,7 @@ export default CardView;
   CardView.Header = styled(Card.Header)`
     color: #000;
     text-align: center;
-    font-size: 28px;
+    font-size: 1.7em;
     font-family: Roboto;
     font-style: normal;
     font-weight: 300;
@@ -116,7 +116,7 @@ export default CardView;
     margin: 0% 38px 0% 38px;
     display: none;
     color: #FFF;
-    font-size: 20px;
+    font-size: 1.25em;
     font-family: Roboto;
     font-style: normal;
     font-weight: 400;

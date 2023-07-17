@@ -1,5 +1,5 @@
 //Context
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { Context } from '../context/context';
 //MUI
 import { Box } from '@mui/material';
@@ -47,6 +47,7 @@ function IndicadorValor({ datos, calc }) {
                 width: '100%',
                 maxWidth: '670px',
                 height: '250px',
+                fontSize: '1.3rem',
                 borderRadius: '10px',
                 border: '1px solid #989898',
                 background: '#FFF',
@@ -57,7 +58,7 @@ function IndicadorValor({ datos, calc }) {
                 title={datos.nombre}
                 titleTypographyProps={{
                     style: {
-                        fontSize: '25px',
+                        fontSize: '1.1em',
                         fontStyle: 'normal',
                         fontWeight: '700',
                         lineHeight: 'normal'

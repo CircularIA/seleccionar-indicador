@@ -8,6 +8,7 @@ import { Box } from '@mui/system';
 import Divider from '@mui/material/Divider';
 import { useTheme } from '@mui/material/styles';
 import { ColorModeContext, tokens } from "../theme";
+import { Typography } from '@mui/material';
 
 function Seleccionado() {
     // const [seleccionado, setSeleccionado] = useState('AMBIENTAL');
@@ -59,8 +60,9 @@ function Seleccionado() {
                 width: '100%',
             }}
         >
-            
-            <H4>{currentIndicator}</H4>
+            <Typography variant= 'h4'>
+                {currentIndicator}
+            </Typography>
             <Divider 
                 sx={{
                     width: '100%',

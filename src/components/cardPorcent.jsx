@@ -25,11 +25,28 @@ function createData(name, toneladas) {
 }
 
 const rows = [
-    createData('Residuos genedaros totales', 159),
+    createData('Residuos generados totales', 159),
     createData('Residuos recuperados biologicos', 237),
     createData('Residuos recuperados técnicos', 262),
 ];
 
+const styles = {
+    rowHeader:{
+        fontSize: '1rem',
+        color: '#989898',
+        fontWeight: '700',
+    },
+    rowCell: {
+        fontSize: '1.2em',
+        fontWeight: '400',
+    },
+    rowCell2: {
+        fontSize: '1.2em',
+        fontWeight: '300',
+        // background: '#00B971',
+        // color: '#FFF',
+    }
+}
 
 function CardPorcent({ source, type, metric, dats, form }) {
     //Styles
@@ -37,20 +54,29 @@ function CardPorcent({ source, type, metric, dats, form }) {
     const colors = tokens(theme.palette.mode);
 
     return (
-        <Grid columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+        <Grid 
+        container 
+        
+        rowSpacing = {{
+            xs: 1,
+            sm: 2,
+            md: 2,
+            lg: 2
+        }}
+        columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
             <Grid item xs={12} >
                 <Box
                     display='flex'
                     flexDirection='row'
                     justifyContent='space-between'
-                    gap={4}
+                    gap={2}
                 >
                     <CardShadow
                         sx={{
                             flexGrow: 1,
                         }}
                     >
-                        <Typography variant='h2' >
+                        <Typography variant='h3' >
                             Fuente
                         </Typography>
                         <Typography variant='h4' >
@@ -62,7 +88,7 @@ function CardPorcent({ source, type, metric, dats, form }) {
                             flexGrow: 1,
                         }}
                     >
-                        <Typography variant='h2' >
+                        <Typography variant='h3' >
                             TIPO
                         </Typography>
                         <Typography variant='h4' >
@@ -73,12 +99,10 @@ function CardPorcent({ source, type, metric, dats, form }) {
             </Grid>
             <Grid
                 item xs={12}
-                sx={{
-                    marginTop: '20px',
-                }}
+                
             >
                 <CardShadow>
-                    <Typography variant='h2' >
+                    <Typography variant='h3' >
                         QUE MIDE
                     </Typography>
                     <Typography variant='h4' >
@@ -88,20 +112,27 @@ function CardPorcent({ source, type, metric, dats, form }) {
             </Grid>
             <Grid
                 item xs={12}
-                sx={{
-                    marginTop: '20px',
-                }}
+                
             >
                 <CardShadow>
-                    <Typography variant='h2' >
+                    <Typography variant='h3' >
                         PORCENTAJE DE RECUPERACIÓN REAL
                     </Typography>
                     <TableContainer component={Paper}>
-                        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                        <Table 
+                        sx={{ minWidth: 300}} aria-label="simple table">
                             <TableHead>
                                 <TableRow>
-                                    <TableCell>DATOS</TableCell>
-                                    <TableCell align="right">UNIDAD</TableCell>
+                                    <TableCell
+                                        sx = {
+                                            styles.rowHeader
+                                        }
+                                    >DATOS</TableCell>
+                                    <TableCell 
+                                        sx = {
+                                            styles.rowHeader
+                                        }
+                                    align="right">UNIDAD</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
@@ -110,12 +141,18 @@ function CardPorcent({ source, type, metric, dats, form }) {
                                         key={row.name}
                                         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                     >
-                                        <TableCell component="th" scope="row">
+                                        <TableCell 
+                                        sx = {
+                                            styles.rowCell
+                                        }
+                                        component="th" scope="row">
                                             {row.name}
                                         </TableCell>
                                         <TableCell 
-                                            align="right"
-                                            backgroundColor={colors.primary[500]}
+                                        sx = {
+                                            styles.rowCell2
+                                        }
+                                        align="right"
                                         >
                                             {row.toneladas}
                                         </TableCell>
@@ -127,15 +164,19 @@ function CardPorcent({ source, type, metric, dats, form }) {
                     {/* Table */}
                 </CardShadow>
             </Grid>
-            <Grid item xs={12}>
+            <Grid 
+                item xs={12}
+                style = {{
+                    alignSelf: 'flex-end',
+                }}
+            >
                 <Button
                     sx={{
                         borderRadius: '10px',
                         background: colors.primary[500],
                         paddingY: '1%',
                         boxShadow: '4px 4px 10px 0px rgba(0, 0, 0, 0.25)',
-                        width: '100%',
-                        marginTop: '7.5%',
+                        width: '100%', 
                     }}
                 >
                     <Typography

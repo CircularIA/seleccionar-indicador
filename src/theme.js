@@ -127,21 +127,23 @@ export const themeSettings = (mode) => {
             },
             h2: {
                 fontFamily: ['Roboto', 'sans-serif'].join(','),
-                fontSize: 32,
+                // fontSize: 32,
+                fontSize: '2vw',
                 fontWeight: 700,
                 lineHeight: 'normal',
             },
             h3: {
                 fontFamily: ['Roboto', 'sans-serif'].join(','),
                 fontSize: 28,
+                fontWeight: 700,
             },
             h4: {
                 fontFamily: ['Roboto', 'sans-serif'].join(','),
-                fontSize: 24,
+                fontSize: '1.5em',
             },
             h5: {
                 fontFamily: ['Roboto', 'sans-serif'].join(','),
-                fontSize: 20,
+                fontSize: '1em',
             },
             h6: {
                 fontFamily: ['Roboto', 'sans-serif'].join(','),

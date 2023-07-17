@@ -3,7 +3,7 @@ import { H4, HR, BotonCalcular, BotonAmbiental, BotonEconomico, BotonSocial} fro
 //Recursos
 import ImagenCalcular from '../assets/Iconos/icon_bar.svg';
 import ImagenNoCalcular from '../assets/Iconos/icon_hard.svg'
-import {Box} from "@mui/material";
+import {Box, Typography} from "@mui/material";
 import Divider from '@mui/material/Divider';
 import { useTheme } from '@mui/material/styles';
 import { ColorModeContext, tokens } from "../theme";
@@ -40,8 +40,16 @@ function Filters({tiposAmbiental, tiposEconomico, tiposSocial, tipo}) {
                 display="flex"
                 flexDirection="row"
             >
-                <H4>INDICADORES</H4>
-                <H4>TIPO</H4>
+                <Typography variant= 'h4'
+                    sx = {{
+                        marginRight: '90%',
+                    }}
+                >
+                    INDICADORES
+                </Typography>
+                <Typography variant= 'h4'>
+                    TIPO
+                </Typography>
             </Box>
             <Divider 
                 sx={{

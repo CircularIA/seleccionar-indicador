@@ -100,7 +100,13 @@ function Main() {
         return (
             <Grid
                 container
-                spacing={0}
+                rowSpacing={{
+                    xs: 2,
+                    sm: 2,
+                    md: 1,
+                    lg: 0,
+                }}
+                columnSpacing={0}
             >
                 <Grid
                     item
@@ -205,16 +211,16 @@ function Main() {
                             xl: 15,
                         }}
                     >   
-                        <Grid item xs={12} sm={6} md={6} lg={6}>
+                        <Grid item xs={12} sm={12} md={6} lg={6}>
                             <IndicadorValor datos={datosGeneral[0]} />
                         </Grid>
-                        <Grid item xs={12} sm={6} md={6} lg={6}>
+                        <Grid item xs={12} sm={12} md={6} lg={6}>
                             <IndicadorValor datos={datosGeneral[1]} />
                         </Grid>
-                        <Grid item xs={12} sm={6} md={6} lg={6}>
+                        <Grid item xs={12} sm={12} md={6} lg={6}>
                             <IndicadorValor datos={datosGeneral[2]} />
                         </Grid>
-                        <Grid item xs={12} sm={6} md={6} lg={6}>
+                        <Grid item xs={12} sm={12} md={6} lg={6}>
                             <IndicadorValor datos={datosGeneral[3]} calc='true' />
                         </Grid>
                     </Grid>
@@ -244,9 +250,14 @@ function Main() {
                 ></Divider>
                 <Grid container
                     columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+                    
                     marginTop='2%'
                 >
-                    <Grid item xs={6} >
+                    <Grid item xs={6} 
+                        style = {{
+                            display: 'flex',
+                        }}
+                    >
                         {/* Fuentes */}
                         <CardPorcent source='CTI'
                             type='Flujos'
@@ -261,68 +272,70 @@ function Main() {
                     </Grid>
                     <Grid item xs={6}>
                         {/* Graficos */}
-                        <Grid item>
-                            <Card
-                                sx={{
-                                    borderRadius: '10px',
-                                    border: '1px solid #989898',
-                                    background: '#FFF',
-                                    boxShadow: '4px 4px 10px 0px rgba(0, 0, 0, 0.25)',
-                                    textAlign: 'center',
+                        <Card
+                            sx={{
+                                borderRadius: '10px',
+                                border: '1px solid #989898',
+                                background: '#FFF',
+                                boxShadow: '4px 4px 10px 0px rgba(0, 0, 0, 0.25)',
+                                textAlign: 'center',
 
+                            }}
+
+                        >
+                            <CardHeader
+                                title='COMPORTAMIENTO HISTORICO'
+                                titleTypographyProps= {{
+                                    variant: 'h3',
                                 }}
+                            />
+                            <CardContent>
+                                <Box
+                                    sx={{
+                                        width: '60%',
+                                        margin: 'auto',
+                                        marginY: '0%',
+                                    }}
+                                >
+                                    <FormControl fullWidth>
+                                        <InputLabel id="demo-simple-select-label">Enero 2023</InputLabel>
+                                        <Select
+                                            labelId="demo-simple-select-label"
+                                            id="demo-simple-select"
+                                            value={hystory}
+                                            label="Historia"
+                                            onChange={handleHystory}
+                                        >
+                                            <MenuItem value={10}>Ten</MenuItem>
+                                            <MenuItem value={20}>Twenty</MenuItem>
+                                            <MenuItem value={30}>Thirty</MenuItem>
+                                        </Select>
+                                    </FormControl>
 
-                            >
-                                <CardHeader
-                                    title='COMPORTAMIENTO HISTORICO'
-                                />
-                                <CardContent>
-                                    <Box
-                                        sx={{
-                                            width: '60%',
-                                            margin: 'auto',
-                                            marginY: '0%',
-                                        }}
-                                    >
-                                        <FormControl fullWidth>
-                                            <InputLabel id="demo-simple-select-label">Enero 2023</InputLabel>
-                                            <Select
-                                                labelId="demo-simple-select-label"
-                                                id="demo-simple-select"
-                                                value={hystory}
-                                                label="Historia"
-                                                onChange={handleHystory}
-                                            >
-                                                <MenuItem value={10}>Ten</MenuItem>
-                                                <MenuItem value={20}>Twenty</MenuItem>
-                                                <MenuItem value={30}>Thirty</MenuItem>
-                                            </Select>
-                                        </FormControl>
-
-                                    </Box>
-                                    <Box
-                                        height='300px'
-                                        width='90%'
-                                    >
-                                        <BarChart></BarChart>
-                                    </Box>
-                                    <Box
-                                        height='150px'
-                                        display='flex'
-                                        flexDirection='row'
-                                        width='90%'
-                                        marginTop='1px'
-                                    >
-                                        {/* <img src={PieGreen} alt='PieGreen' />
-                                        <img src={PieRed} alt='PieRed' />
-                                        <img src={PieYellow} alt='PieYellow' /> */}
-                                        <PieChart></PieChart>
-                                        <PieChart></PieChart>
-                                        <PieChart></PieChart>
-                                    </Box>
-                                </CardContent>
-                            </Card>
-                        </Grid>
+                                </Box>
+                                <Box
+                                    height='300px'
+                                    width='90%'
+                                >
+                                    <BarChart></BarChart>
+                                </Box>
+                                <Box
+                                    height='150px'
+                                    display='flex'
+                                    flexDirection='row'
+                                    width='90%'
+                                    marginTop='1px'
+                                >
+                                    {/* <img src={PieGreen} alt='PieGreen' />
+                                    <img src={PieRed} alt='PieRed' />
+                                    <img src={PieYellow} alt='PieYellow' /> */}
+                                    <PieChart></PieChart>
+                                    <PieChart></PieChart>
+                                    <PieChart></PieChart>
+                                </Box>
+                            </CardContent>
+                        </Card>
+                        
                         <Box
                             display='flex'
                             flexDirection='row'
