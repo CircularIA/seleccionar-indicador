@@ -8,24 +8,36 @@ import Divider from '@mui/material/Divider';
 import { useTheme } from '@mui/material/styles';
 import { ColorModeContext, tokens } from "../theme";
 import { useEffect, useRef,useContext } from 'react';
-import { Context } from '../context/context';
 
-function Filters({tiposAmbiental, tiposEconomico, tiposSocial, tipo}) {
+
+function Filters({tiposAmbiental, tiposEconomico, tiposSocial, tipo, currentType, setCurrentType}) {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
-
-    const {currentIndicator} = useContext(Context);
-
     const refBotones = useRef();
     useEffect(() => {
         refBotones.current.childNodes.forEach((e)=>{
-            if (e.innerText.toLowerCase() === currentIndicator.toLowerCase()) {
+            if (currentType.includes(e.innerText.toLowerCase())) {
                 e.classList.add('active');
+            } else{
+                e.classList.remove('active');
             }
         })
-    }, [])
+    }, [currentType])
+
     const setActiveState = (e) => {
-        e.target.classList.toggle('active');
+        // e.target.classList.toggle('active');
+        //La idea es identificar si ya esta activo el boton
+        //Si esta activo, se debe eliminar de la lista
+        //Si no esta activo, se debe agregar a la lista
+        if (e.target.classList.contains('active')) {
+            setCurrentType((object) =>
+                object.filter((item) => item !== e.target.innerText.toLowerCase())
+            )
+        } else {
+            setCurrentType((object) =>
+                [...object, e.target.innerText.toLowerCase()]
+            )
+        }
     }
     return (
         <Box
@@ -72,14 +84,12 @@ function Filters({tiposAmbiental, tiposEconomico, tiposSocial, tipo}) {
                 }}            
             >
                 <BotonCalcular
-                    className="active"
                     onClick = {setActiveState}
                 >
                     <img src={ImagenCalcular} alt=""/>
                     Calculado
                 </BotonCalcular>
                 <BotonCalcular
-                    className="active"
                     onClick = {setActiveState}
                 >
                     <img src={ImagenNoCalcular} alt=""/>

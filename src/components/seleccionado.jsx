@@ -1,8 +1,7 @@
-import {useRef, useContext, useEffect, useState} from 'react'
+import {useRef,  useEffect, useState} from 'react'
 
 import './../css/seleccionado.css'
 import {H4, HR} from "../styles/Seleccionado";
-import { Context } from '../context/context';
 //Styles from material ui
 import { Box } from '@mui/system';
 import Divider from '@mui/material/Divider';
@@ -10,9 +9,9 @@ import { useTheme } from '@mui/material/styles';
 import { ColorModeContext, tokens } from "../theme";
 import { Typography } from '@mui/material';
 
-function Seleccionado() {
+function Seleccionado({currentIndicator, setCurrentIndicator}) {
     // const [seleccionado, setSeleccionado] = useState('AMBIENTAL');
-    const {currentIndicator, setCurrentIndicator} = useContext(Context);
+
     const refBotones = useRef();
     // const refLinea = useRef();
     const theme = useTheme();

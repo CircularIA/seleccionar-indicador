@@ -1,6 +1,3 @@
-//Context
-import { useContext } from 'react'
-import { Context } from '../context/context';
 //MUI
 import { Box } from '@mui/material';
 import Card from '@mui/material/Card';
@@ -28,18 +25,16 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   }));
 
 
-function IndicadorValor({ datos, calc }) {
+function IndicadorValor({ datos, calc, setCurrentView }) {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
     //True es que fue calculado
     const color = calc ? 'linear-gradient( 90deg, rgba(0, 138, 85, 1), rgba(13, 255, 110, 1))' : '#989898';
-    const {setCurrentView} = useContext(Context);
     const nextView = () =>{
         setCurrentView((e) =>
             e + 1
         )
     }
-
     return (
         <Card
             onClick={nextView}

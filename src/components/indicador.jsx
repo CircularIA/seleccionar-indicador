@@ -1,18 +1,23 @@
-import { useContext } from 'react'
-
-import { Context } from '../context/context';
-
 import CardView from './../styles/Card.js'
 import { Box } from '@mui/material';
-function Indicador({ nombre, descripcion, imagen, titulo = '' }) {
-  const { setCurrentView, currentIndicator,  setCurrentIndicator } = useContext(Context);
+
+function Indicador({ nombre, descripcion, imagen, titulo = '', setCurrentView, currentIndicator, setCurrentIndicator, currentType, setCurrentType }) {
   const nextView = () => {
     setCurrentView((e) =>
       e + 1
     )
-    titulo ? setCurrentIndicator(titulo.toUpperCase()) : setCurrentIndicator(nombre.toUpperCase());
+    if (titulo) {
+      setCurrentIndicator(titulo.toUpperCase())
+    } else{
+      setCurrentType((e) =>
+        //Necesito agregar un valor a la lista definida en el useState
+        [...e, nombre.toLowerCase()]
+      )
+    }
   }
   const currentHeight = nombre ? '100%' : '420px';
+  console.log("have titulo?", titulo)
+  console.log("currentIndicator", currentIndicator)
   return (
     <Box
       sx={{

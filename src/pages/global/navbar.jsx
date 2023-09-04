@@ -12,7 +12,9 @@ function NavBar() {
                 alignItems: 'center',
                 minWidth: '100px',
                 minHeight: '100vh',
+                
                 paddingTop: '2%',
+                paddingRight: '1%',
             }}
         >
             <img

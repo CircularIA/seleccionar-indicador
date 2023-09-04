@@ -1,5 +1,3 @@
-import { useContext } from 'react'
-import { Context } from '../../context/context';
 // import { styled } from 'styled-components';
 // import LensIcon from '@mui/icons-material/Lens';
 import { Box, IconButton, Typography, useTheme } from '@mui/material';
@@ -27,11 +25,10 @@ const steps = [
     'Puede ver los datos del indicador'
   ];
 
-function Footer() {
+function Footer({currentView, setCurrentView}) {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
 
-    const { currentView } = useContext(Context);
     return (
         <Box
             sx={{

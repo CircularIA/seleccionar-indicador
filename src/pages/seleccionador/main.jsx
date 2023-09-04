@@ -1,5 +1,5 @@
 //Bibliotecas
-import { useState, useContext } from 'react'
+import { useState} from 'react'
 //Componentes
 import Indicador from '../../components/indicador'
 import Search from '../../components/search';
@@ -13,8 +13,7 @@ import Divider from '@mui/material/Divider';
 import Button from '@mui/material/Button';
 //Recursos
 import { datos, tiposAmbiental, tiposEconomico, tiposSocial, datosGeneral } from '../../constants/datos';
-//Context
-import { Context } from '../../context/context';
+
 import Filters from '../../components/filters';
 import CardPorcent from '../../components/cardPorcent';
 import Card from '@mui/material/Card';
@@ -32,15 +31,17 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-function Main() {
+function Main({currentView, setCurrentView}) {
     //Hystory
     const [hystory, setHystory] = useState('');
     //Styles
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
-    //Context
-    const { currentView } = useContext(Context);
-    
+    // const { currentView } = useContext(Context);
+    //Current view change to drill Component    
+    const [currentIndicator, setCurrentIndicator] = useState("AMBIENTAL");
+    //La idea es definir aca los tipos que se vayan seleccionando en la segunda vista
+    const [currentType, setCurrentType] = useState([]);
     const handleHystory = (e) => {
         setHystory(e.target.value);
     }
@@ -88,7 +89,11 @@ function Main() {
                                 key={index}>
                                 <Indicador descripcion={indicador.descripcion}
                                     imagen={indicador.imagen}
-                                    titulo={indicador.titulo} >
+                                    titulo={indicador.titulo} 
+                                    setCurrentView = {setCurrentView}
+                                    currentIndicator = {currentIndicator}
+                                    setCurrentIndicator = {setCurrentIndicator}
+                                    >
                                 </Indicador>
                             </Grid>
                         })}
@@ -124,7 +129,7 @@ function Main() {
                     item
                     xs={12}
                 >
-                    <Seleccionado></Seleccionado>
+                    <Seleccionado currentIndicator = {currentIndicator} setCurrentIndicator={setCurrentIndicator} />
                 </Grid>
                 <Grid
                     item
@@ -157,7 +162,9 @@ function Main() {
                                 lg={4}
                                 key={index}
                             >
-                                <Indicador nombre={indicador.nombre} descripcion={indicador.descripcion} imagen={indicador.imagen} ></Indicador>
+                                <Indicador nombre={indicador.nombre} descripcion={indicador.descripcion} imagen={indicador.imagen} 
+                                setCurrentView = {setCurrentView} currentIndicator={currentIndicator} setCurrentIndicator={setCurrentIndicator}
+                                currentType={currentType} setCurrentType={setCurrentType} />
                             </Grid>
                         })}
                     </Grid>
@@ -186,7 +193,9 @@ function Main() {
                     item
                     xs={12}
                 >
-                    <Filters tiposAmbiental={tiposAmbiental} tiposEconomico={tiposEconomico} tiposSocial={tiposSocial} ></Filters>
+                    <Filters tiposAmbiental={tiposAmbiental} tiposEconomico={tiposEconomico} tiposSocial={tiposSocial} 
+                        currentType={currentType} setCurrentType={setCurrentType} 
+                    />
                 </Grid>
                 <Grid
                     item
@@ -212,16 +221,16 @@ function Main() {
                         }}
                     >   
                         <Grid item xs={12} sm={12} md={6} lg={6}>
-                            <IndicadorValor datos={datosGeneral[0]} />
+                            <IndicadorValor setCurrentView={setCurrentView} datos={datosGeneral[0]} />
                         </Grid>
                         <Grid item xs={12} sm={12} md={6} lg={6}>
-                            <IndicadorValor datos={datosGeneral[1]} />
+                            <IndicadorValor setCurrentView={setCurrentView} datos={datosGeneral[1]} />
                         </Grid>
                         <Grid item xs={12} sm={12} md={6} lg={6}>
-                            <IndicadorValor datos={datosGeneral[2]} />
+                            <IndicadorValor setCurrentView={setCurrentView} datos={datosGeneral[2]} />
                         </Grid>
                         <Grid item xs={12} sm={12} md={6} lg={6}>
-                            <IndicadorValor datos={datosGeneral[3]} calc='true' />
+                            <IndicadorValor setCurrentView={setCurrentView} datos={datosGeneral[3]} calc='true' />
                         </Grid>
                     </Grid>
                 </Grid>
